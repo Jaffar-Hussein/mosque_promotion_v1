@@ -18,7 +18,7 @@ function Heropage(){
                 dark:bg-accentSolid-dark dark:border-accentLine-dark dark:hover:bg-accentSolidHover-dark  dark:focus:ring-2 dark:focus:ring-accentBgHover-dark
                 
                 ">
-                Watch Our Video
+                Watch Our Video 
                 </a> 
             </div>
             <div className="flex justify-center">
