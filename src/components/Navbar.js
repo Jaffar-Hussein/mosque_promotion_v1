@@ -10,11 +10,21 @@ function Navbar(){
                         <img src={logo} alt="logo"></img>
                     </div>
                     {/* Colour Toggler */}
+             
                     <div className="float-right space-x-12  flex">
-                        <a href="#" className="text-accentTextContrast hover:text-accentText">Home</a>
-                        <a href="#" className="text-accentTextContrast hover:text-accentText">About us</a>
-                        <a href="#" className="text-accentTextContrast hover:text-accentText">Courses</a>
-                        <a href="#" className="text-accentTextContrast hover:text-accentText">Contact Us</a>
+                        <a href="#" className="text-accentTextContrast font-medium hover:text-accentText">Home</a>
+                        <a href="#" className="text-accentTextContrast font-medium hover:text-accentText">About us</a>
+                        <a href="#" className="text-accentTextContrast font-medium hover:text-accentText">Courses</a>
+                        <a href="#" className="text-accentTextContrast font-medium hover:text-accentText">Contact Us</a>
+                        <div className="w-14 h-8">
+                        {/* <input type="checkbox" id="dark-mode-toggle" className="hidden" onChange="document.documentElement.classList.toggle('dark')" /> */}
+                        <input type="checkbox" id="dark-mode-toggle" className="hidden"  />
+                        <label htmlFor="dark-mode-toggle" className="w-full h-full bg-gray-800 dark:bg-white rounded-full p-1 flex justify-between cursor-pointer">
+                            <span className="inline dark:hidden">🌞</span>
+                            <span className="w-6 h-6 rounded-full bg-white dark:bg-gray-800 block float-right dark:float-left"></span>
+                            <span className="hidden dark:inline">🌛</span>
+                        </label>
+                    </div>
                     </div>
                 </div>
                 {/* Rest of Nav */}

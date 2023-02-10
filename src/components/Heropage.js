@@ -2,18 +2,22 @@ import Navbar from "./Navbar"
 
 function Heropage(){
     return (
-        <div className="bg-accentBgSubtle h-fit">
+        <div className="bg-accentBgSubtle h-fit font-sans">
         <Navbar/>
         {/* Hero page content  */}
-        <div className="grid grid-cols-2 gap-4 p-12 m-5 justify-center">
+        <div className="grid grid-cols-2 gap-4 p-12 mt-2 mx-5 justify-center">
             <div className="grid justify-items-start gap-3">
                 <h1 className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl text-accentTextContrast dark:text-white ">Discover The</h1>
                 <h1 className="max-w-2xl mb-4 text-4xl text-accentTextContrast font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">Beauty of Islam</h1>
 
                 <p className="max-w-2xl mb-6 font-medium text-start text-accentText ">Join our Islamic Learning Website today and dive into a wealth of knowledge about the faith. Enhance your understanding, deepen your faith and connect with a community of like-minded individuals. Start today !</p>
+                <a href="#" className="items-center text-decoration-white justify-center px-5 py-3  text-center  border rounded bg-accentSolid border-accentBorder  hover:bg-accentSolidHover focus:ring-2 focus:ring-accentBorderHover ring-offset-2">
+                <p className="text-white">Watch Our Video</p>
+            </a> 
             </div>
             <div className="flex justify-center">
-                <iframe className="aspect-video rounded-lg shadow-lg m-3" src="https://www.youtube.com/embed/V6mKVRU1evU"></iframe>
+            {/* https://www.youtube.com/watch?v=JFsznAyAEMY&t=2427s */}
+                <iframe className="aspect-video rounded-lg shadow-lg m-3" src="https://www.youtube.com/embed/JFsznAyAEMY"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
             </div>
         </div>
         {/* <section class="bg-white dark:bg-gray-900">
