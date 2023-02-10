@@ -21,7 +21,7 @@ function Heropage(){
                 Watch Our Video 
                 </a> 
             </div>
-            <div className="flex justify-center">
+            <div className="flex justify-center ">
             {/* https://www.youtube.com/watch?v=JFsznAyAEMY&t=2427s */}
                 <iframe className="aspect-video rounded-lg shadow-accentSolid dark:shadow-accentSolid-dark shadow-lg " src="https://www.youtube.com/embed/JFsznAyAEMY"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
             </div>
