@@ -11,7 +11,7 @@ function Navbar(){
                     </div>
                     {/* Colour Toggler */}
              
-                    <div className="float-right space-x-12  flex">
+                    <div className="hidden md:flex float-right space-x-12  ">
                         <a href="#" className="text-accentTextContrast font-medium hover:text-accentText">Home</a>
                         <a href="#" className="text-accentTextContrast font-medium hover:text-accentText">About us</a>
                         <a href="#" className="text-accentTextContrast font-medium hover:text-accentText">Courses</a>

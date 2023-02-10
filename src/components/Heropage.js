@@ -5,9 +5,9 @@ function Heropage(){
         <div className="bg-accentBgSubtle h-fit font-sans">
         <Navbar/>
         {/* Hero page content  */}
-        <div className="grid grid-cols-2 gap-4 p-12 mt-2 mx-5 justify-center">
-            <div className="grid justify-items-start gap-3">
-                <h1 className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl text-accentTextContrast dark:text-white ">Discover The</h1>
+        <div className=" flex flex-col md:grid grid-cols-2 gap-4 p-12 mt-2 mx-5 justify-center">
+            <div className="grid md:justify-items-start gap-3">
+                <h1 className="max-w-2xl md:mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl text-accentTextContrast dark:text-white ">Discover The</h1>
                 <h1 className="max-w-2xl mb-4 text-4xl text-accentTextContrast font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">Beauty of Islam</h1>
 
                 <p className="max-w-2xl mb-6 font-medium text-start text-accentText ">Join our Islamic Learning Website today and dive into a wealth of knowledge about the faith. Enhance your understanding, deepen your faith and connect with a community of like-minded individuals. Start today !</p>
