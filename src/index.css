@@ -777,6 +777,16 @@ video {
   border-color: hsl(153 51.8% 21.8% / var(--tw-border-opacity));
 }
 
+.border-accentLine {
+  --tw-border-opacity: 1;
+  border-color: hsl(143 40.3% 79.0% / var(--tw-border-opacity));
+}
+
+.border-accentLine-dark {
+  --tw-border-opacity: 1;
+  border-color: hsl(154 50.9% 17.6% / var(--tw-border-opacity));
+}
+
 .bg-accentBase {
   --tw-bg-opacity: 1;
   background-color: hsl(136 50.0% 98.9% / var(--tw-bg-opacity));
@@ -896,6 +906,11 @@ video {
   --tw-shadow: var(--tw-shadow-colored);
 }
 
+.ring-accentLine {
+  --tw-ring-opacity: 1;
+  --tw-ring-color: hsl(143 40.3% 79.0% / var(--tw-ring-opacity));
+}
+
 .ring-offset-2 {
   --tw-ring-offset-width: 2px;
 }
@@ -945,6 +960,21 @@ video {
   --tw-ring-color: hsl(151 51.7% 28.4% / var(--tw-ring-opacity));
 }
 
+.focus\:ring-accentLine:focus {
+  --tw-ring-opacity: 1;
+  --tw-ring-color: hsl(143 40.3% 79.0% / var(--tw-ring-opacity));
+}
+
+.focus\:ring-accentBgHover:focus {
+  --tw-ring-opacity: 1;
+  --tw-ring-color: hsl(140 48.7% 91.0% / var(--tw-ring-opacity));
+}
+
+.focus\:ring-accentBorder:focus {
+  --tw-ring-opacity: 1;
+  --tw-ring-color: hsl(146 38.5% 69.0% / var(--tw-ring-opacity));
+}
+
 .dark .dark\:float-left {
   float: left;
 }
@@ -955,6 +985,11 @@ video {
 
 .dark .dark\:hidden {
   display: none;
+}
+
+.dark .dark\:border-accentLine-dark {
+  --tw-border-opacity: 1;
+  border-color: hsl(154 50.9% 17.6% / var(--tw-border-opacity));
 }
 
 .dark .dark\:bg-accentBase-dark {
@@ -1000,6 +1035,27 @@ video {
 .dark .dark\:hover\:text-accentText-dark:hover {
   --tw-text-opacity: 1;
   color: hsl(151 50.0% 53.2% / var(--tw-text-opacity));
+}
+
+.dark .dark\:focus\:ring-2:focus {
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+}
+
+.dark .dark\:focus\:ring-accentBorderHover-dark:focus {
+  --tw-ring-opacity: 1;
+  --tw-ring-color: hsl(151 51.7% 28.4% / var(--tw-ring-opacity));
+}
+
+.dark .dark\:focus\:ring-accentLine-dark:focus {
+  --tw-ring-opacity: 1;
+  --tw-ring-color: hsl(154 50.9% 17.6% / var(--tw-ring-opacity));
+}
+
+.dark .dark\:focus\:ring-accentBgHover-dark:focus {
+  --tw-ring-opacity: 1;
+  --tw-ring-color: hsl(154 48.4% 12.9% / var(--tw-ring-opacity));
 }
 
 @media (min-width: 768px) {

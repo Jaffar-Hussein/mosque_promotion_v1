@@ -11,10 +11,15 @@ function Heropage(){
                 <h1 className="max-w-2xl mb-4 text-4xl text-accentTextContrast font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-accentTextContrast-dark">Beauty of Islam</h1>
 
                 <p className="max-w-2xl mb-6 font-medium text-start text-accentText dark:text-accentText-dark ">Join our Islamic Learning Website today and dive into a wealth of knowledge about the faith. Enhance your understanding, deepen your faith and connect with a community of like-minded individuals. Start today !</p>
-                <a href="#" className="items-center text-decoration-white justify-center px-5 py-3  text-center  border rounded bg-accentSolid border-accentBorder  hover:bg-accentSolidHover focus:ring-2 focus:ring-accentBorderHover dark:bg-accentSolid-dark border-accentBorder-dark  dark:hover:bg-accentSolidHover-dark  focus:ring-accentBorderHover-dark ring-offset-2
+                <a href="#" 
+                className="
+                items-center text-decoration-white justify-center px-5 py-3  text-center ring-offset-2  border  rounded
+                bg-accentSolid border-accentLine  hover:bg-accentSolidHover focus:ring-2 focus:ring-accentBorder 
+                dark:bg-accentSolid-dark dark:border-accentLine-dark dark:hover:bg-accentSolidHover-dark  dark:focus:ring-2 dark:focus:ring-accentBgHover-dark
+                
                 ">
-                <p className="text-white">Watch Our Video</p>
-            </a> 
+                Watch Our Video
+                </a> 
             </div>
             <div className="flex justify-center">
             {/* https://www.youtube.com/watch?v=JFsznAyAEMY&t=2427s */}
