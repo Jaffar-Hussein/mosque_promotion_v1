@@ -845,6 +845,10 @@ video {
   background-color: hsl(151 55.0% 41.5% / var(--tw-bg-opacity));
 }
 
+.stroke-2 {
+  stroke-width: 2;
+}
+
 .p-6 {
   padding: 1.5rem;
 }
@@ -909,6 +913,11 @@ video {
 .text-base {
   font-size: 1rem;
   line-height: 1.5rem;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
 }
 
 .font-extrabold {
@@ -1016,6 +1025,10 @@ video {
 
   .md\:grid {
     display: grid;
+  }
+
+  .md\:hidden {
+    display: none;
   }
 
   .md\:max-w-2xl {
