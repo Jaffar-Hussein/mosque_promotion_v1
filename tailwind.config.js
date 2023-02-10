@@ -50,7 +50,7 @@ module.exports = {
       },
       'accentText': {
         DEFAULT: 'hsl(153, 67.0%, 28.5%)',
-        dark: '#0e7490',
+        dark: '#be123c',
       },
       'accentTextContrast': {
         DEFAULT: 'hsl(155, 40.0%, 14.0%)',
