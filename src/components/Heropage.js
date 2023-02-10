@@ -7,10 +7,10 @@ function Heropage(){
         {/* Hero page content  */}
         <div className=" flex flex-col md:grid grid-cols-2 gap-4 p-12 mt-2 mx-5 justify-center">
             <div className="grid md:justify-items-start gap-3">
-                <h1 className="max-w-2xl md:mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl text-accentTextContrast dark:text-accentTextContrast-dark ">Discover The</h1>
-                <h1 className="max-w-2xl mb-4 text-4xl text-accentTextContrast font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-accentTextContrast-dark">Beauty of Islam</h1>
+                <h1 className="max-w-2xl md:mb-4 text-4xl font-extrabold tracking-widest leading-none md:text-5xl xl:text-6xl text-accentTextContrast dark:text-accentTextContrast-dark ">Discover The</h1>
+                <h1 className="max-w-2xl mb-4 text-4xl text-accentTextContrast font-extrabold tracking-widest leading-none md:text-5xl xl:text-6xl dark:text-accentTextContrast-dark">Beauty of Islam</h1>
 
-                <p className="max-w-2xl mb-6 font-medium text-start text-accentText dark:text-accentText-dark ">Join our Islamic Learning Website today and dive into a wealth of knowledge about the faith. Enhance your understanding, deepen your faith and connect with a community of like-minded individuals. Start today !</p>
+                <p className="max-w-2xl mb-6 font-medium text-start text-accentText dark:text-accentText-dark leading-loose">Join our Islamic Learning Website today and dive into a wealth of knowledge about the faith. Enhance your understanding, deepen your faith and connect with a community of like-minded individuals. Start today !</p>
                 <a href="#" 
                 className="
                 items-center text-decoration-white justify-center px-5 py-3  text-center ring-offset-2  border  rounded
@@ -18,12 +18,12 @@ function Heropage(){
                 dark:bg-accentSolid-dark dark:border-accentLine-dark dark:hover:bg-accentSolidHover-dark  dark:focus:ring-2 dark:focus:ring-accentBgHover-dark
                 
                 ">
-                Watch Our Video
+                Watch Our Video 
                 </a> 
             </div>
             <div className="flex justify-center">
             {/* https://www.youtube.com/watch?v=JFsznAyAEMY&t=2427s */}
-                <iframe className="aspect-video rounded-lg shadow-accentSolid dark:shadow-accentSolid-dark shadow-lg m-3" src="https://www.youtube.com/embed/JFsznAyAEMY"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                <iframe className="aspect-video rounded-lg shadow-accentSolid dark:shadow-accentSolid-dark shadow-lg " src="https://www.youtube.com/embed/JFsznAyAEMY"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
             </div>
         </div>
         {/* <section class="bg-white dark:bg-gray-900">
