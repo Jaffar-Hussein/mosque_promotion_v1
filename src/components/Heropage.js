@@ -2,18 +2,18 @@ import Navbar from "./Navbar"
 
 function Heropage(){
     return (
-        <div className="bg-accentBgSubtle h-screen">
+        <div className="bg-accentBgSubtle h-fit">
         <Navbar/>
         {/* Hero page content  */}
-        <div className="flex">
-            <div className="flex-column justify-items-start align place-self-center">
-                <h1 className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white ">Discover The</h1>
-                <h1 className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">Beauty of Islam</h1>
+        <div className="grid grid-cols-2 gap-4 p-12 m-5 justify-center">
+            <div className="grid justify-items-start gap-3">
+                <h1 className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl text-accentTextContrast dark:text-white ">Discover The</h1>
+                <h1 className="max-w-2xl mb-4 text-4xl text-accentTextContrast font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">Beauty of Islam</h1>
 
-                <p className="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">From checkout to global sales tax compliance, companies around the world use Flowbite to simplify their payment stack.</p>
+                <p className="max-w-2xl mb-6 font-medium text-start text-accentText ">Join our Islamic Learning Website today and dive into a wealth of knowledge about the faith. Enhance your understanding, deepen your faith and connect with a community of like-minded individuals. Start today !</p>
             </div>
-            <div className="w-1/2">
-            <iframe className="w-full aspect-video " src="https://www.youtube.com/embed/V6mKVRU1evU"></iframe>
+            <div className="flex justify-center">
+                <iframe className="aspect-video rounded-lg shadow-lg m-3" src="https://www.youtube.com/embed/V6mKVRU1evU"></iframe>
             </div>
         </div>
         {/* <section class="bg-white dark:bg-gray-900">
