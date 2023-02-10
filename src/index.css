@@ -903,6 +903,12 @@ video {
   --tw-ring-offset-width: 2px;
 }
 
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
 .transition-transform {
   transition-property: -webkit-transform;
   transition-property: transform;
@@ -914,6 +920,10 @@ video {
 .moon {
   fill:hsl(137, 72.0%, 94.0%)!important;
 }
+
+/* body * {
+    @apply transition-colors duration-2000;
+} */
 
 .hover\:bg-accentSolidHover:hover {
   --tw-bg-opacity: 1;
