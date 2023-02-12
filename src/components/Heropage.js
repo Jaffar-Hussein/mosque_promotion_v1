@@ -1,6 +1,8 @@
 import Navbar from "./Navbar"
-
+import { useState } from "react";
 function Heropage(){
+    const youtube_link = "https://www.youtube.com/embed/JFsznAyAEMY"
+    const [link, setLink] = useState(youtube_link);
     return (
         <div className="bg-accentBgSubtle h-fit font-sans dark:bg-accentBgSubtle-dark">
         <Navbar/>
@@ -17,13 +19,15 @@ function Heropage(){
                 bg-accentSolid border-accentLine  hover:bg-accentSolidHover focus:ring-2 focus:ring-accentBorder 
                 dark:bg-accentSolid-dark dark:border-accentLine-dark dark:hover:bg-accentSolidHover-dark  dark:focus:ring-2 dark:focus:ring-accentBgHover-dark
                 
-                ">
+                "
+                onClick={()=>setLink(youtube_link+"?autoplay=1")}>
                 Watch Our Video 
                 </a> 
             </div>
             <div className="flex md:flex justify-center ">
+            {/* ?autoplay=1 */}
             {/* https://www.youtube.com/watch?v=JFsznAyAEMY&t=2427s */}
-                <iframe className="aspect-video rounded-lg shadow-accentSolid dark:shadow-accentSolid-dark shadow-lg " src="https://www.youtube.com/embed/JFsznAyAEMY"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                <iframe className="aspect-video rounded-lg shadow-accentSolid dark:shadow-accentSolid-dark shadow-lg " src={link}  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
             </div>
         </div>
         {/* <section class="bg-white dark:bg-gray-900">
