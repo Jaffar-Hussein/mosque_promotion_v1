@@ -34,12 +34,12 @@ function Navbar(){
                                     </a>
                             </DropdownMenu.Trigger>
                             <DropdownMenu.Portal className=''>
-                            <DropdownMenu.Content  sideOffset={5} className="bg-accentBase dark:bg-accentBase-dark w-48 rounded-lg px-1.5 py-1 md:w-56 transition-all text-accentText dark:text-accentTextContrast-dark p-5 rounded-lg shadow-accentSolid dark:shadow-accentSolid-dark shadow-sm">
-                            <DropdownMenu.Item className="font-light hover:bg-accentBgHover hover:dark:bg-accentBgHover-dark outline-none rounded-md p-1">Initiation</DropdownMenu.Item>
-                            <DropdownMenu.Item className="font-light hover:bg-accentBgHover hover:dark:bg-accentBgHover-dark outline-none rounded-md p-1">Tafsir</DropdownMenu.Item>
-                            <DropdownMenu.Item className="font-light hover:bg-accentBgHover hover:dark:bg-accentBgHover-dark outline-none rounded-md p-1">Understandin</DropdownMenu.Item>
-                            <DropdownMenu.Item className="font-light hover:bg-accentBgHover hover:dark:bg-accentBgHover-dark outline-none rounded-md p-1">Application</DropdownMenu.Item>
-                            <DropdownMenu.Item className="font-light hover:bg-accentBgHover hover:dark:bg-accentBgHover-dark outline-none rounded-md p-1">Memorization</DropdownMenu.Item>
+                            <DropdownMenu.Content  sideOffset={5} className="bg-accentBase dark:bg-accentBase-dark w-48 rounded-lg px-1.5 py-2 md:w-56 transition-all text-accentText dark:text-accentTextContrast-dark p-5 rounded-lg shadow-accentSolid dark:shadow-accentSolid-dark shadow-sm">
+                            <DropdownMenu.Item className="font-light hover:bg-accentBgHover hover:dark:bg-accentBgHover-dark outline-none rounded-md py-1 px-2">Initiation</DropdownMenu.Item>
+                            <DropdownMenu.Item className="font-light hover:bg-accentBgHover hover:dark:bg-accentBgHover-dark outline-none rounded-md py-1 px-2">Tajweed</DropdownMenu.Item>
+                            <DropdownMenu.Item className="font-light hover:bg-accentBgHover hover:dark:bg-accentBgHover-dark outline-none rounded-md py-1 px-2">Tafsir</DropdownMenu.Item>
+                            <DropdownMenu.Item className="font-light hover:bg-accentBgHover hover:dark:bg-accentBgHover-dark outline-none rounded-md py-1 px-2">Application of Rules</DropdownMenu.Item>
+                            <DropdownMenu.Item className="font-light hover:bg-accentBgHover hover:dark:bg-accentBgHover-dark outline-none rounded-md py-1 px-2">Memorization</DropdownMenu.Item>
 
                             </DropdownMenu.Content>
                             </DropdownMenu.Portal>
