@@ -3,7 +3,7 @@
 module.exports = {
   darkMode: 'class',
   content: [
-      "./src/**/*.{js,jsx,ts,tsx}",
+      "./src/**/*.{js,jsx,ts,tsx,html}",
   ],
   
   theme: {
@@ -60,5 +60,7 @@ module.exports = {
     },
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    require('tailwind-clip-path'),
+  ],
 }

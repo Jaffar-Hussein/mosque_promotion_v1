@@ -1,9 +1,15 @@
 import './App.css';
-import Heropage from './components/Heropage';
+import About from './components/About';
+import Band from './components/Band';
+import Heropage2 from './components/Heropage2';
+// import Hexagoncards from './components/Hexagoncards';
 function App() {
   return (
-    <div className="App h-screen bg-accentBase dark:bg-accentBase-dark">
-      <Heropage/>
+    <div className="App  bg-accentBase dark:bg-accentBase-dark">
+      <Heropage2/>
+      <Band/>
+      {/* <Hexagoncards/> */}
+      <About/>
     </div>
   );
 }
