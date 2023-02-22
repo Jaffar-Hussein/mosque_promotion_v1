@@ -1,11 +1,11 @@
 function Band() {
 	return (
-		<div className=' h-48 relative'>
-			<div className='absolute inset-0 grid'>
+		<div className=' h-content md:h-48 relative'>
+			<div className='hidden md:grid absolute inset-0 '>
 				<div className='bg-accentBase  md:bg-accentBgSubtle dark:bg-accentBgSubtle-dark '></div>
 				<div className=' bg-accentBase dark:bg-accentBase-dark'></div>
 			</div>
-			<div className='h-full flex flex-col md:flex-row w-3/4 gap-9 p-5 mx-auto transition-colors ease-in-out delay-150'>
+			<div className='h-full flex flex-col md:flex-row w-3/4 gap-9 p-3 md:p-5 mx-auto transition-colors ease-in-out delay-150 '>
 				<div
 					className='
 				bg-accentBg dark:bg-accentBg-dark rounded-xl dark:text-accentText-dark 
