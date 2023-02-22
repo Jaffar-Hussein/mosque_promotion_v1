@@ -2,10 +2,10 @@ function Band() {
 	return (
 		<div className=' h-48 relative'>
 			<div className='absolute inset-0 grid'>
-				<div className=' bg-accentBgSubtle dark:bg-accentBgSubtle-dark '></div>
+				<div className='bg-accentBase  md:bg-accentBgSubtle dark:bg-accentBgSubtle-dark '></div>
 				<div className=' bg-accentBase dark:bg-accentBase-dark'></div>
 			</div>
-			<div className='h-full flex w-3/4 gap-9 p-5 mx-auto transition-colors ease-in-out delay-150'>
+			<div className='h-full flex flex-col md:flex-row w-3/4 gap-9 p-5 mx-auto transition-colors ease-in-out delay-150'>
 				<div
 					className='
 				bg-accentBg dark:bg-accentBg-dark rounded-xl dark:text-accentText-dark 
@@ -20,7 +20,7 @@ function Band() {
 							viewBox='0 0 24 24'
 							strokeWidth={1.5}
 							stroke='currentColor'
-							className='w-20 h-20 stroke-accentTextContrast  dark:stroke-accentTextContrast-dark' 
+							className='w-20 h-20 stroke-accentTextContrast  dark:stroke-accentTextContrast-dark'
 						>
 							<path
 								strokeLinecap='round'
@@ -55,7 +55,7 @@ function Band() {
 							/>
 						</svg>
 
-						<p className="">The program is free and online</p>
+						<p className=''>Upto date lessons and resources</p>
 					</div>
 				</div>
 				<div
@@ -78,11 +78,11 @@ function Band() {
 							<path
 								strokeLinecap='round'
 								strokeLinejoin='round'
-								d='M14.25 7.756a4.5 4.5 0 100 8.488M7.5 10.5h5.25m-5.25 3h5.25M21 12a9 9 0 11-18 0 9 9 0 0118 0z'
+								d='M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5'
 							/>
 						</svg>
 
-						<p>The program is free and online</p>
+						<p>Experienced Instructors</p>
 					</div>
 				</div>
 			</div>
