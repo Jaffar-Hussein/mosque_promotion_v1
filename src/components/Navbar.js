@@ -137,7 +137,7 @@ function Navbar() {
 								<DropdownMenu.Portal className=''>
 									<DropdownMenu.Content
 										sideOffset={5}
-										className='bg-accentBase dark:bg-accentBase-dark w-48 rounded-lg px-1.5 py-2 md:w-56 transition-all text-accentText dark:text-accentTextContrast-dark p-5 rounded-lg shadow-accentSolid dark:shadow-accentSolid-dark shadow-sm'
+										className='bg-accentBase dark:bg-accentBase-dark w-48 px-1.5 py-2 md:w-56 transition-all text-accentText dark:text-accentTextContrast-dark p-5 rounded-lg shadow-accentSolid dark:shadow-accentSolid-dark shadow-sm'
 									>
 										<DropdownMenu.Item className='font-light hover:bg-accentBgHover hover:dark:bg-accentBgHover-dark outline-none rounded-md py-1 px-2'>
 											Initiation
@@ -182,7 +182,7 @@ function Navbar() {
 											layout
 											exit={{ opacity: 0, transition: { duration: 0.2 } }}
 										>
-											<span className='hidden dark:rotate-45 dark:inline '>
+											<span className='hidden dark:rotate-45 dark:inline  '>
 												<svg
 													width='15'
 													height='15'
@@ -194,7 +194,7 @@ function Navbar() {
 														fill='currentColor'
 														fillRule='evenodd'
 														clipRule='evenodd'
-														className='fill-accentTextContrast dark:fill-accentTextContrast-dark'
+														className='fill-accentTextContrast dark:fill-accentTextContrast-dark animate-pulse  '
 													></path>
 												</svg>
 											</span>
