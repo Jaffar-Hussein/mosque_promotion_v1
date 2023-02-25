@@ -6,7 +6,7 @@ function Heropage2() {
 	return (
 		<div className='bg-accentBgSubtle h-fit font-sans dark:bg-accentBgSubtle-dark pb-7'>
 			<Navbar /> {/* Hero page content  */}
-			<div className='grid md:grid-cols-2 gap-3 mx-9 mt-6 py-6'>
+			<div className='grid md:grid-cols-2 gap-3 mx-2 md:mx-9  py-6'>
 				<div className='grid md:justify-items-start gap-3'>
 					<h1 className='max-w-2xl md:mb-4 text-4xl font-extrabold tracking-widest leading-none md:text-5xl xl:text-6xl text-accentTextContrast dark:text-accentTextContrast-dark '>
 						Discover The
@@ -23,7 +23,7 @@ function Heropage2() {
 					</p>
 					<a
 						href='#'
-						className='w-75 md:initial
+						className=' w-75 md:initial
                 items-center text-decoration-white justify-center px-5 py-3  text-center ring-offset-2  border  rounded
                 bg-accentSolid border-accentLine  hover:bg-accentSolidHover focus:ring-2 focus:ring-accentBorder
                 dark:bg-accentSolid-dark dark:border-accentLine-dark dark:hover:bg-accentSolidHover-dark  dark:focus:ring-2 dark:focus:ring-accentBgHover-dark
@@ -36,7 +36,7 @@ function Heropage2() {
 				</div>
 				<div className='mx-auto w-full md:w-[95%]'>
 					<iframe
-						className=' w-full aspect-video rounded-lg shadow-accentSolid dark:shadow-accentSolid-dark shadow-lg '
+						className=' w-full aspect-video  rounded-md md:rounded-lg md:shadow-accentSolid md:dark:shadow-accentSolid-dark shadow-lg '
 						src={link}
 						allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
 						allowFullScreen
