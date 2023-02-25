@@ -2083,6 +2083,18 @@ video {
     height: 12rem;
   }
 
+  .md\:h-\[\] {
+    height: ;
+  }
+
+  .md\:h-\[80\] {
+    height: 80;
+  }
+
+  .md\:h-\[80vh\] {
+    height: 80vh;
+  }
+
   .md\:w-56 {
     width: 14rem;
   }

@@ -1,7 +1,7 @@
 import quran from "../assets/quran.svg";
 function About() {
 	return (
-		<div className='bg-accentBgSubtle dark:bg-accentBgSubtle-dark h-content grid px-2 md:grid md:grid-cols-2  md:content-center'>
+		<div className='bg-accentBgSubtle dark:bg-accentBgSubtle-dark h-content md:h-[80vh] grid px-2 md:grid md:grid-cols-2  md:content-center'>
 			<div className="max-h-full mx-auto ">
 				<img src={quran} alt='quran' className='h-[60vh]' />
 			</div>
