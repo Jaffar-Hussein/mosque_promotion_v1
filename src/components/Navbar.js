@@ -9,7 +9,7 @@ function Navbar() {
 				<div className='pt-1'>
 					{/* Logo */}
 					<div className='grid grid-cols-5 justify-items-center content-center mx-auto md:grid-cols-4 md:gap-3 md:px-8 md:py-5'>
-						<div className='col-span-2'>
+						<div className='col-span-2 md:col-auto'>
 							<img src={logo} alt='logo' className='hidden dark:block'></img>
 							<img
 								src={logo_dark}
@@ -68,8 +68,8 @@ function Navbar() {
 										<span className='w-6 h-6 rounded-full bg-white dark:bg-gray-800 block float-right dark:float-left'></span>
 										{/* <span className="hidden dark:inline">🌛</span> */}
 							</label>
-						</div>
-						<div className='col-start-5 :hidden stroke-2 text-lg'>
+						</div>""
+						<div className='col-start-5 md:hidden stroke-2 text-lg'>
 							<svg
 								width='30'
 								height='30'

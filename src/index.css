@@ -2046,6 +2046,10 @@ video {
     grid-column: span 2 / span 2;
   }
 
+  .md\:col-auto {
+    grid-column: auto;
+  }
+
   .md\:col-start-3 {
     grid-column-start: 3;
   }
