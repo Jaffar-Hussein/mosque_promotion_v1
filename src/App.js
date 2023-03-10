@@ -3,6 +3,7 @@ import About from './components/About';
 import Band from './components/Band';
 import Heropage2 from './components/Heropage2';
 import Courses from './components/Courses';
+import Subscription from './components/Subscription';
 // import Hexagoncards from './components/Hexagoncards';
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       {/* <Hexagoncards/> */}
       <About/>
       <Courses/>
+      <Subscription/>
     </div>
   );
 }

@@ -1,4 +1,6 @@
 import Card from "./Card";
+import { ReactSVG } from "react-svg";
+import CourseSVG from "../assets/course2.svg";
 function Courses() {
 	const courses = [
 		{
@@ -24,27 +26,33 @@ function Courses() {
 	];
 	return (
 		<div
-			className='min-h-[50vh]  bg-accentBase dark:bg-accentBase-dark
+			className='w-screen  bg-accentBase dark:bg-accentBase-dark space-y-3 relative
         '
 		>
-			<p className='text-4xl text-accentTextContrast dark:text-accentTextContrast-dark'>
+			<p className='text-4xl text-accentTextContrast dark:text-accentTextContrast-dark pt-5 '>
 				Courses
 			</p>
 			{/* <div className=" flex flex-no-wrap gap-3 nap-x  snap-mandatory overflow-x-scroll scrolling-touch items-start mb-8 md:grid md:grid-cols-3 md:p-5  md:gap-3 mx-auto justify-items-center"> */}
-			<div className='relative w-full flex gap-6 snap-x snap-proximity overflow-x-auto p-14 scrolling-touch  md:grid md:grid-cols-3 md:gap-3 mx-auto justify-items-center md:overflow-hidden md:p-5 md:snap-none '>
+			<div className='w-full p-5 flex flex-col gap-5 items-center md:grid  md:grid-cols-3 md-p-2 md:gap-3 md:justify-items-center '>
 				{courses.map((course) => {
 					return (
-						<div class='snap-center shrink-0 md:w-12 md:flex-grow-0 md:snap-none'>
+						<div>
 							<Card
 								key={course.id}
 								name={course.name}
 								description={course.description}
-								className='shrink-0'
+								className='z-20'
 							/>
 						</div>
 					);
 				})}
 			</div>
+			{/* <CourseSVG className="hidden md:absolute md:flex md:right-0 h-[100%]  md:top-0 md:z-10"/> */}
+
+			<img src={CourseSVG} className="hidden dark:hidden md:absolute md:flex md:right-0 h-[100%]  md:top-0 md:z-10 fill-accentBase-dark dark:fill-accentBase"/>
+			<img src={CourseSVG} className="hidden dark:hidden md:absolute md:flex md:left-0 md:rotate-180 h-[100%]  md:top-0 md:z-10 fill-accentBase-dark dark:fill-accentBase"/>
+
+			
 		</div>
 	);
 }

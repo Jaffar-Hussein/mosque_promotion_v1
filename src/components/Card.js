@@ -1,6 +1,6 @@
 function Card({description,name}) {
 	return (
-		<div class='max-w-sm w-[100vw] p-6 aspect-1/3 bg-accentBgSubtle dark:bg-accentBgSubtle-dark border border-accentBorder dark:border-accent-accentBorder-dark rounded-lg shadow dark:bg-gray-800 dark:border-gray-700'>
+		<div class='max-w-sm  p-6 aspect-1/3 bg-accentBg dark:bg-accentBg-dark border border-accentBorder dark:border-accent-accentBorder-dark rounded-lg shadow dark:bg-gray-800 dark:border-gray-700'>
 			<a href='#'>
 				<h5 class='mb-2 text-2xl font-bold tracking-tight text-accentTextContrast dark:text-accentTextContrast-dark '>
 					{name}
