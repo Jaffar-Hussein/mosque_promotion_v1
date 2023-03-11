@@ -31,6 +31,8 @@ module.exports = {
       'accentLine': {
         DEFAULT: 'hsl(143, 40.3%, 79.0%)',
         dark: 'hsl(154, 50.9%, 17.6%)',
+        special:'hsla(142, 40%, 79%, 1)'
+
       },
       'accentBorder': {
         DEFAULT: 'hsl(146, 38.5%, 69.0%)',
