@@ -13,7 +13,7 @@ function App() {
       {/* <Hexagoncards/> */}
       <About/>
       <Courses/>
-      <Subscription/>
+      {/* <Subscription/> */}
     </div>
   );
 }
