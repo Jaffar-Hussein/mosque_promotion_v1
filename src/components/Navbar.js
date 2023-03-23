@@ -22,8 +22,8 @@ function Navbar() {
 			<nav className='sticky top-0 z-30 bg-gray-50 bg-opacity-70 backdrop-blur backdrop-filter'>
 				<div className='pt-1'>
 					{/* Logo */}
-					<div className='grid grid-cols-8 justify-items-center content-center mx-auto md:grid-cols-4 md:gap-3 md:px-8 md:py-5'>
-						<div className='col-span-4 h-5 md:col-auto'>
+					<div className='grid grid-cols-8 justify-items-center px-3 pt-3 content-center mx-auto md:grid-cols-4 md:gap-3 md:px-8 md:py-5'>
+						<div className='col-span-4  h-5 md:col-auto'>
 							<img src={logo} alt='logo' className='hidden dark:block'></img>
 							<img
 								src={logo_dark}
@@ -302,7 +302,7 @@ function Navbar() {
 								</button>
 							</div>
 							<div className='mt-6 flow-root'>
-								<div className='-my-6 divide-y divide-accentTextContrast '>
+								<div className='-my-6 divide-y divide-accentBorder dark:divide-accentBorder-dark '>
 									<div className='space-y-2 py-6'>
 										{navigation.map((item) => (
 											<a
