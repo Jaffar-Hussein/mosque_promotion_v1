@@ -6,17 +6,17 @@ function About() {
 				<img src={quran} alt='quran' className='h-[60vh]' />
 			</div>
 			<div
-				className='flex flex-col text-justify dark:text-accentText-dark 
+				className='flex flex-col text-justify items-center dark:text-accentText-dark 
 				text-accentText space-y-2 px-2'
 			> 
-				<p className='text-base'>
+				<p className='text-base md:text-xl md:leading-8'>
 					At our Islamic Education Website, we believe in providing quality
 					education to everyone, regardless of their background or financial
 					status. Our mission is to spread the teachings of Islam to as many
 					people as possible and to help individuals deepen their faith and
 					understanding of the religion.
 				</p>
-				<p className='text-base'>
+				<p className='text-base md:text-xl md:leading-8 md:text-justify'>
 					Whether you're a beginner or looking to expand your existing
 					knowledge, our diverse range of courses, from the basics of Islam to
 					advanced topics, will cater to your needs. Our supportive community

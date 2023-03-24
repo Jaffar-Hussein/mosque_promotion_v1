@@ -11,16 +11,17 @@ function Courses() {
 		{
 			id: 2,
 
-			name: "Tajwid",
+			name: "Tafsir",
 			description:
-				"In the context of the recitation of the Quran, tajwīd is a set of rules for the correct pronunciation of the letters with all their qualities and applying the various traditional methods of recitation.",
+				"Notre section de tafsir en français et en arabe propose des vidéos de commentaires pour approfondir votre compréhension des versets coraniques. Les vidéos sont présentées par des érudits renommés et couvrent le contexte historique, les nuances linguistiques et les implications théologiques de chaque verset.",
 		},
+		
 		{
-			id: 3,
+			id: 4,
 
-			name: "Tajwid",
+			name: "Memorisation",
 			description:
-				"In the context of the recitation of the Quran, tajwīd is a set of rules for the correct pronunciation of the letters with all their qualities and applying the various traditional methods of recitation.",
+				"Notre application Musulmane du Coran utilise uniquement des vidéos publicitaires discrètes pour offrir une expérience utilisateur agréable. Les publicités sont soigneusement sélectionnées pour vous offrir des contenus pertinents et intéressants.",
 		},
 	];
 	return (
