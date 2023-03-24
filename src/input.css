@@ -39,3 +39,7 @@
     border-left: 104px solid transparent;
     border-right: 104px solid transparent;
 }
+
+.text-transparent{
+    color: transparent;
+}
