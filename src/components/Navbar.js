@@ -19,10 +19,10 @@ function Navbar() {
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 	return (
 		<>
-			<nav className='sticky top-0 z-30 bg-gray-50 bg-opacity-70 backdrop-blur backdrop-filter bg-accentBgSubtle font-sans dark:bg-accentBgSubtle-dark pt-8 md:pt-0 '>
+			<nav className='sticky top-0 z-30 bg-gray-50 bg-opacity-70 backdrop-blur backdrop-filter bg-accentBgSubtle font-sans dark:bg-accentBgSubtle-dark '>
 				<div className=''>
 					{/* Logo */}
-					<div className='grid grid-cols-8 justify-items-center px-3 content-center mx-auto md:grid-cols-4 md:gap-3 md:px-8 md:py-5'>
+					<div className='grid grid-cols-8 justify-items-center px-3 py-3 content-center mx-auto md:grid-cols-4 md:gap-3 md:px-8 md:py-5'>
 						<div className='col-span-4  h-5 md:col-auto'>
 							<img src={logo} alt='logo' className='hidden dark:block'></img>
 							<img
