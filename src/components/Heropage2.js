@@ -14,10 +14,11 @@ function Heropage2() {
 				// animate={{x:0}}
 				// transition={{ type:'spring',duration:1,bounce:0.3}}
 			>
-				<Navbar /> {/* Hero page content  */}
+				{/* <Navbar />  */}
+				{/* Hero page content  */}
 				<div className='grid md:grid-cols-2 gap-3 mx-2 md:mx-9  py-6 sm:px-1.5 overflow-hidden'>
 					<motion.div
-						className='grid md:justify-items-start gap-3 '
+						className='grid md:justify-items-start gap-3 overflow-hidden'
 						initial={{ x: "-100vw" }}
 						animate={{ x: 0 }}
 						transition={{ type: "spring", duration: 3, bounce: 0.3 }}
@@ -53,7 +54,7 @@ function Heropage2() {
 						</a>
 					</motion.div>
 					<motion.div
-						className='mx-auto w-full md:w-[95%]'
+						className='mx-auto w-full md:w-[95%] overflow-hidden'
 						// opacity
 						// initial={{ opacity: 0 }}
 						initial={{x : '100vw'}}
