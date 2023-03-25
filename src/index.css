@@ -961,6 +961,30 @@ video {
   border-spacing: var(--tw-border-spacing-x) var(--tw-border-spacing-y);
 }
 
+.translate-y-full {
+  --tw-translate-y: 100%;
+  -webkit-transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+          transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.translate-y-0 {
+  --tw-translate-y: 0px;
+  -webkit-transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+          transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.translate-y-1 {
+  --tw-translate-y: 0.25rem;
+  -webkit-transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+          transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.-translate-y-full {
+  --tw-translate-y: -100%;
+  -webkit-transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+          transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
 .-rotate-45 {
   --tw-rotate: -45deg;
   -webkit-transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -1170,6 +1194,11 @@ video {
 .bg-accentSolid {
   --tw-bg-opacity: 1;
   background-color: hsl(151 55.0% 41.5% / var(--tw-bg-opacity));
+}
+
+.bg-accentBase-dark {
+  --tw-bg-opacity: 1;
+  background-color: hsl(146 30.0% 7.4% / var(--tw-bg-opacity));
 }
 
 .bg-opacity-70 {
@@ -1594,6 +1623,14 @@ video {
   transition-duration: 300ms;
 }
 
+.duration-1000 {
+  transition-duration: 1000ms;
+}
+
+.duration-500 {
+  transition-duration: 500ms;
+}
+
 .ease-in {
   transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
 }
@@ -1711,9 +1748,17 @@ video {
   --tw-ring-color: hsl(146 38.5% 69.0% / var(--tw-ring-opacity));
 }
 
+.focus-visible\:accent-accentBgHover:focus-visible {
+  accent-color: hsl(140, 48.7%, 91.0%);
+}
+
 .focus-visible\:outline-none:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 2px;
+}
+
+.focus-visible\:outline-accentSolid:focus-visible {
+  outline-color: hsl(151, 55.0%, 41.5%);
 }
 
 .focus-visible\:ring-0:focus-visible {
@@ -1849,6 +1894,10 @@ video {
 .dark .dark\:focus\:ring-accentBgHover-dark:focus {
   --tw-ring-opacity: 1;
   --tw-ring-color: hsl(154 48.4% 12.9% / var(--tw-ring-opacity));
+}
+
+.dark .dark\:focus-visible\:accent-accentBgHover-dark:focus-visible {
+  accent-color: hsl(154, 48.4%, 12.9%);
 }
 
 @media (min-width: 640px) {

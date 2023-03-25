@@ -279,25 +279,25 @@ function Navbar() {
 						>
 							<Transition.Child
 								as={Fragment}
-								enter='ease-out duration-300'
-								enterFrom='opacity-0'
-								enterTo='opacity-100'
-								leave='ease-in duration-200'
-								leaveFrom='opacity-100'
-								leaveTo='opacity-0'
+								enter='ease-linear transition-all duration-500'
+								enterFrom=' -translate-y-full'
+								enterTo=' translate-y-0'
+								leave='ease-linear transition-all duration-500'
+								leaveFrom=' translate-y-0'
+								leaveTo=' -translate-y-full'
 							>
-								<div className='fixed inset-0 z-50' />
+								<div className='fixed inset-0 z-50  bg-accentBgSubtle dark:bg-accentBgSubtle-dark' />
 							</Transition.Child>
 							<Transition.Child
 								as={Fragment}
 								enter='ease-out duration-300'
-								enterFrom='opacity-0 scale-95'
-								enterTo='opacity-100 scale-100'
+								enterFrom='opacity-0 scale-95 '
+								enterTo='opacity-100 scale-100 '
 								leave='ease-in duration-200'
-								leaveFrom='opacity-100 scale-100'
-								leaveTo='opacity-0 scale-95'
+								leaveFrom='opacity-100'
+								leaveTo=' opacity-0 '
 							>
-								<Dialog.Panel className='fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-accentBgSubtle dark:bg-accentBgSubtle-dark px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-accentBgHover dark:sm:ring-accentBgHover-dark'>
+								<Dialog.Panel className='fixed inset-y-0 right-0 z-50 w-full overflow-y-auto px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-accentBgHover dark:sm:ring-accentBgHover-dark'>
 									<div className='flex items-center justify-between'>
 										<div className='-m-1.5 p-1.5'>
 											<span className='sr-only'>Mosque</span>
@@ -314,7 +314,7 @@ function Navbar() {
 										</div>
 										<button
 											type='button'
-											className='-m-2.5 rounded-md p-2.5 text-accentText dark:text-accentText-dark'
+											className='-m-2.5 rounded-md p-2.5 text-accentText dark:text-accentText-dark focus-visible:outline-accentSolid dark:focus-visible:outline-accent-accentBgHover-dark'
 											onClick={() => setMobileMenuOpen(false)}
 										>
 											<span className='sr-only'>Close menu</span>
