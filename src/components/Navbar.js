@@ -42,11 +42,11 @@ function Navbar() {
 									document.documentElement.classList.toggle("dark")
 								}
 							/>
-							<label
+							<motion.label 
 								htmlFor='dark-mode-toggle'
-								className='w-full h-full transition-transform bg-gray-800 dark:bg-white rounded-full p-1 flex justify-between cursor-pointer'
+								className='w-full h-full bg-gray-800 dark:bg-white rounded-full p-1 flex justify-between cursor-pointer'
 							>
-								<span className='hidden dark:flex '>
+								<motion.span className='hidden dark:flex ' animate={{ rotate: 360 }} transition={{ duration: 1 }}>
 									<svg
 										width='25'
 										height='25'
@@ -61,8 +61,8 @@ function Navbar() {
 											className='fill-accentTextContrast dark:fill-accentTextContrast-dark'
 										></path>
 									</svg>
-								</span>
-								<span className='inline dark:hidden'>
+								</motion.span>
+								<motion.span className='inline dark:hidden' intial={{rotate:360}} animate={{ rotate: 0 }} transition={{ duration: 1 }}>
 									<svg
 										width='25'
 										height='25'
@@ -78,9 +78,9 @@ function Navbar() {
 											className='fill-accentTextContrast dark:fill-accentTextContrast-dark'
 										></path>
 									</svg>
-								</span>
+								</motion.span>
 								<span className='w-6 h-6 rounded-full bg-white dark:bg-gray-800 block float-right dark:float-left'></span>
-							</label>
+							</motion.label>
 						</div>
 
 						<div
