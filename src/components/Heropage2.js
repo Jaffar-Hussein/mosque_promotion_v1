@@ -38,15 +38,9 @@ function Heropage2() {
 							faith and connect with a community of like-minded individuals.
 							Start today !
 						</p>
-
-						{/* <Toast
-							title='Upgrade available'
-							content="We've just released Radix 3.0!"
-							open={true}
-						>
-							<a
+						<a
 								href='#'
-								className=' w-75 md:w-fit md:inline-flex font-medium text-accentTextContrast tracking-wider
+								className=' w-48 mb-5 md:mb-0 mx-auto md:mx-0 md:w-fit md:inline-flex font-medium text-accentTextContrast tracking-wider
                 items-center text-decoration-none  px-5 py-3    ring-offset-2  border  rounded dark:text-accentTextContrast-dark
                 bg-accentSolid border-accentLine  hover:bg-accentSolidHover focus:ring-2 focus:ring-accentBorder
                 dark:bg-accentSolid-dark dark:border-accentLine-dark dark:hover:bg-accentSolidHover-dark  dark:focus:ring-2 dark:focus:ring-accentBgHover-dark
@@ -56,6 +50,12 @@ function Heropage2() {
 							>
 								<span>Watch Our Video</span>
 							</a>
+						{/* <Toast
+							title='Upgrade available'
+							content="We've just released Radix 3.0!"
+							open={true}
+						>
+							
 						</Toast> */}
 					</motion.div>
 					<motion.div
