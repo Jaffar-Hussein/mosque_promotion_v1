@@ -7,6 +7,8 @@ import logo_dark from "../assets/logo.svg";
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import { motion, AnimatePresence } from "framer-motion";
 import * as Toggle from "@radix-ui/react-toggle";
+import {Logomosque3} from "./Svgcomponents";
+// import LogoMosque2 from "./Svgcomponents";
 
 const navigation = [
 	{ name: "Home", href: "#" },
@@ -19,21 +21,23 @@ function Navbar() {
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 	return (
 		<>
-			<nav className='sticky top-0 z-30 bg-gray-50 bg-opacity-70 backdrop-blur backdrop-filter bg-accentBgSubtle font-sans dark:bg-accentBgSubtle-dark '>
-				<div className=''>
+			<nav className='sticky top-0 z-30 bg-gray-50 bg-opacity-70 backdrop-blur backdrop-filter bg-accentBgSubtle font-sans dark:bg-accentBgSubtle-dark h-fit'>
+				<div className=' w-inherit h-inherit top-0'>
 					{/* Logo */}
-					<div className='grid grid-cols-8 justify-items-center px-3 py-3 content-center mx-auto md:grid-cols-4 md:gap-3 md:px-8 md:py-5'>
-						<div className='col-span-4  h-5 md:col-auto'>
-							<img src={logo} alt='logo' className='hidden dark:block'></img>
+					<div className='grid grid-cols-5 justify-items-center px-3 py-3 content-center mx-auto md:grid-cols-4 md:gap-3 md:px-8 md:py-5'>
+						<div className='col-span-2 col-start-3 md:col-auto h-32 md:col-start-1'>
+							{/* <img src={logo} alt='logo' className='hidden dark:block'></img>
 							<img
 								src={logo_dark}
 								alt='logo'
 								className='block dark:hidden'
-							></img>
+							></img> */}
+							{/* <LogoMosque2 className="h-6 stroke-2 fill-accentTextContrast-dark"/> */}
+							<Logomosque3 className="w-auto "/>
 						</div>
 
 						{/* Phone Colour Toggler */}
-						<div className='flex col-start-7 md:hidden '>
+						<div className='flex col-start-6 md:hidden '>
 							<input
 								type='checkbox'
 								id='dark-mode-toggle'
@@ -104,56 +108,12 @@ function Navbar() {
 							</svg>
 						</div>
 
-						{/* <DropdownMenu.Root>
-							<DropdownMenu.Trigger asChild>
-								<div className='col-start-8 md:hidden stroke-2 text-lg'>
-									<svg
-										width='30'
-										height='30'
-										viewBox='0 0 15 15'
-										fill='none'
-										xmlns='http://www.w3.org/2000/svg'
-									>
-										<path
-											d='M1.5 3C1.22386 3 1 3.22386 1 3.5C1 3.77614 1.22386 4 1.5 4H13.5C13.7761 4 14 3.77614 14 3.5C14 3.22386 13.7761 3 13.5 3H1.5ZM1 7.5C1 7.22386 1.22386 7 1.5 7H13.5C13.7761 7 14 7.22386 14 7.5C14 7.77614 13.7761 8 13.5 8H1.5C1.22386 8 1 7.77614 1 7.5ZM1 11.5C1 11.2239 1.22386 11 1.5 11H13.5C13.7761 11 14 11.2239 14 11.5C14 11.7761 13.7761 12 13.5 12H1.5C1.22386 12 1 11.7761 1 11.5Z'
-											fill='currentColor'
-											fillRule='evenodd'
-											clipRule='evenodd'
-											className='fill-accentTextContrast dark:fill-accentTextContrast-dark'
-										></path>
-									</svg>
-								</div>
-							</DropdownMenu.Trigger>
-							<DropdownMenu.Portal className=''>
-								<DropdownMenu.Content
-									sideOffset={10}
-									className='bg-accentBase dark:bg-accentBase-dark min-w-[48px] px-4.5 py-5  transition-all text-accentText dark:text-accentTextContrast-dark p-5 rounded-lg shadow-accentSolid dark:shadow-accentSolid-dark shadow-sm
-									
-									'
-								>
-									<DropdownMenu.Item className='font-light hover:bg-accentBgHover hover:dark:bg-accentBgHover-dark outline-none rounded-md py-4 px-2'>
-										Initiation
-									</DropdownMenu.Item>
-									<DropdownMenu.Item className='font-light hover:bg-accentBgHover hover:dark:bg-accentBgHover-dark outline-none rounded-md py-4  px-2'>
-										Tajweed
-									</DropdownMenu.Item>
-									<DropdownMenu.Item className='font-light hover:bg-accentBgHover hover:dark:bg-accentBgHover-dark outline-none rounded-md py-4  px-2'>
-										Tafsir
-									</DropdownMenu.Item>
-									<DropdownMenu.Item className='font-light hover:bg-accentBgHover hover:dark:bg-accentBgHover-dark outline-none rounded-md py-4  px-2'>
-										Application of Rules
-									</DropdownMenu.Item>
-									<DropdownMenu.Item className='font-light hover:bg-accentBgHover hover:dark:bg-accentBgHover-dark outline-none rounded-md py-1 px-2'>
-										Memorization
-									</DropdownMenu.Item>
-								</DropdownMenu.Content>
-							</DropdownMenu.Portal>
-						</DropdownMenu.Root> */}
 
-						<div className='hidden md:flex float-right md:col-start-3 md:col-span-2 space-x-12 mx-auto'>
+
+						<div className='hidden md:flex float-right md:col-start-3 md:col-span-2 space-x-12 mx-auto items-center text-xl'>
 							<a
 								href='#'
-								className='text-accentTextContrast dark:text-accentTextContrast-dark font-medium hover:text-accentText dark:hover:text-accentText-dark md'
+								className='text-accentTextContrast dark:text-accentTextContrast-dark  font-medium hover:text-accentText dark:hover:text-accentText-dark md'
 							>
 								Home
 							</a>

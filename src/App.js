@@ -9,7 +9,7 @@ import Navbar from "./components/Navbar";
 function App() {
 	return (
 		<ToastProvider>
-			<div className='App  bg-accentBase dark:bg-accentBase-dark'>
+			<div className='App relative  bg-accentBase dark:bg-accentBase-dark'>
 				{/* <div className="sticky top-0 z-50"> */}
 				<Navbar />
 				{/* </div> */}
