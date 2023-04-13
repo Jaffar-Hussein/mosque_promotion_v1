@@ -21,7 +21,7 @@ function Navbar() {
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 	return (
 		<>
-			<nav className='sticky top-0 z-30 bg-gray-50 bg-opacity-70 backdrop-blur backdrop-filter bg-accentBgSubtle font-sans dark:bg-accentBgSubtle-dark h-fit'>
+			<nav className='sticky top-0 z-30  bg-opacity-70 backdrop-blur backdrop-filter bg-accentBgSubtle/50 font-sans dark:bg-accentBgSubtle-dark/50 h-fit '>
 				<div className=' w-inherit h-inherit top-0'>
 					{/* Logo */}
 					<div className='grid grid-cols-5 justify-items-center px-3 py-3 content-center mx-auto md:grid-cols-4 md:gap-3 md:px-8 md:py-5'>
