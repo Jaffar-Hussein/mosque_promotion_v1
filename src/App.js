@@ -5,28 +5,71 @@ import Heropage2 from "./components/Heropage2";
 import Courses from "./components/Courses";
 import { ToastProvider } from "@radix-ui/react-toast";
 import Navbar from "./components/Navbar";
+import { Logomosque3 } from "./components/Svgcomponents";
 
 function App() {
 	return (
 		<ToastProvider>
-			<div className='App relative bg-accentBase dark:bg-accentBase-dark'>
+			<div className="min-h-screen bg-white dark:bg-accentBase-dark">
 				<Navbar />
-				<Heropage2 />
-				<Band />
-				<About />
-				<Courses />
-				<footer id='contact' className='bg-accentBgSubtle dark:bg-accentBgSubtle-dark border-t border-accentLine dark:border-accentLine-dark py-10 px-4'>
-					<div className='max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6'>
-						<div className='text-center md:text-left'>
-							<p className='text-lg font-bold text-accentTextContrast dark:text-accentTextContrast-dark'>Islamic Education</p>
-							<p className='text-sm text-accentText dark:text-accentText-dark mt-1'>Free online Quran courses for everyone.</p>
+				<main>
+					<Heropage2 />
+					<Band />
+					<About />
+					<Courses />
+				</main>
+
+				<footer id="contact" className="bg-accentTextContrast dark:bg-accentBase-dark border-t border-accentLine dark:border-accentLine-dark">
+					<div className="max-w-6xl mx-auto px-4 py-12 grid md:grid-cols-3 gap-10">
+						{/* Brand */}
+						<div className="flex flex-col gap-4">
+							<Logomosque3 className="h-14 w-auto brightness-0 invert" />
+							<p className="text-sm text-gray-300 leading-relaxed max-w-xs">
+								Free, expert-led Islamic education for Muslims everywhere.
+								Learn at your own pace, from anywhere.
+							</p>
 						</div>
-						<nav className='flex flex-wrap justify-center gap-6 text-sm text-accentText dark:text-accentText-dark'>
-							<a href='#home' className='hover:text-accentTextContrast dark:hover:text-accentTextContrast-dark transition-colors'>Home</a>
-							<a href='#about' className='hover:text-accentTextContrast dark:hover:text-accentTextContrast-dark transition-colors'>About</a>
-							<a href='#courses' className='hover:text-accentTextContrast dark:hover:text-accentTextContrast-dark transition-colors'>Courses</a>
-						</nav>
-						<p className='text-xs text-accentText dark:text-accentText-dark'>
+
+						{/* Links */}
+						<div className="flex flex-col gap-3">
+							<p className="text-white font-semibold text-sm uppercase tracking-wider mb-1">
+								Navigation
+							</p>
+							{[
+								{ label: "Home", href: "#home" },
+								{ label: "About Us", href: "#about" },
+								{ label: "Courses", href: "#courses" },
+								{ label: "Contact", href: "#contact" },
+							].map(({ label, href }) => (
+								<a
+									key={label}
+									href={href}
+									className="text-gray-400 hover:text-white text-sm transition-colors duration-150"
+								>
+									{label}
+								</a>
+							))}
+						</div>
+
+						{/* Courses */}
+						<div className="flex flex-col gap-3">
+							<p className="text-white font-semibold text-sm uppercase tracking-wider mb-1">
+								Courses
+							</p>
+							{["Tajwid", "Tafsir", "Memorisation"].map((course) => (
+								<a
+									key={course}
+									href="#courses"
+									className="text-gray-400 hover:text-white text-sm transition-colors duration-150"
+								>
+									{course}
+								</a>
+							))}
+						</div>
+					</div>
+
+					<div className="border-t border-gray-700 px-4 py-5">
+						<p className="text-center text-gray-500 text-xs">
 							&copy; {new Date().getFullYear()} Islamic Education. All rights reserved.
 						</p>
 					</div>

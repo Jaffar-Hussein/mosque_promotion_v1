@@ -76,8 +76,8 @@ function Navbar() {
 			<nav className='sticky top-0 z-30 bg-accentBgSubtle/80 dark:bg-accentBgSubtle-dark/80 backdrop-blur backdrop-filter border-b border-accentLine dark:border-accentLine-dark font-sans'>
 				<div className='max-w-6xl mx-auto px-4 py-3 flex items-center justify-between'>
 					{/* Logo */}
-					<a href='#home' aria-label='Go to top'>
-						<Logomosque3 className='h-12 w-auto' />
+					<a href='#home' aria-label='Go to top' className='flex items-center'>
+						<Logomosque3 className='h-16 w-auto' />
 					</a>
 
 					{/* Desktop nav */}
