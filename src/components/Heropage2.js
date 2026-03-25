@@ -1,49 +1,66 @@
-import { useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 
-const VIDEO_ID = "JFsznAyAEMY";
-const EMBED_URL = `https://www.youtube.com/embed/${VIDEO_ID}`;
-const THUMBNAIL_URL = `https://img.youtube.com/vi/${VIDEO_ID}/maxresdefault.jpg`;
+const highlights = [
+	{
+		icon: (
+			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+				<path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+			</svg>
+		),
+		title: "Tajwid",
+		desc: "Master the rules of Quranic recitation with expert guidance.",
+	},
+	{
+		icon: (
+			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+				<path strokeLinecap="round" strokeLinejoin="round" d="M3.75 9.776c.112-.017.227-.026.344-.026h15.812c.117 0 .232.009.344.026m-16.5 0a2.25 2.25 0 00-1.883 2.542l.857 6a2.25 2.25 0 002.227 1.932H19.05a2.25 2.25 0 002.227-1.932l.857-6a2.25 2.25 0 00-1.883-2.542m-16.5 0V6A2.25 2.25 0 016 3.75h3.879a1.5 1.5 0 011.06.44l2.122 2.12a1.5 1.5 0 001.06.44H18A2.25 2.25 0 0120.25 9v.776" />
+			</svg>
+		),
+		title: "Tafsir",
+		desc: "Understand the deep meaning and context of Quranic verses.",
+	},
+	{
+		icon: (
+			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+				<path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" />
+			</svg>
+		),
+		title: "Memorisation",
+		desc: "Commit the Quran to heart with structured, teacher-led programmes.",
+	},
+];
 
-function VideoPlayer() {
-	const [playing, setPlaying] = useState(false);
-
-	if (playing) {
-		return (
-			<iframe
-				title="Introduction to Islamic Education"
-				className="w-full aspect-video rounded-2xl shadow-2xl"
-				src={`${EMBED_URL}?autoplay=1&rel=0&modestbranding=1`}
-				frameBorder="0"
-				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-				allowFullScreen
-			/>
-		);
-	}
-
+function CourseHighlights() {
 	return (
-		<button
-			aria-label="Play introduction video"
-			onClick={() => setPlaying(true)}
-			className="group relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl focus:outline-none focus:ring-4 focus:ring-accentBorder"
-		>
-			<img
-				src={THUMBNAIL_URL}
-				alt="Video thumbnail — Introduction to Islamic Education"
-				className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-			/>
-			<div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors duration-300" />
-			<div className="absolute inset-0 flex items-center justify-center">
-				<div className="bg-white/95 dark:bg-gray-900/95 rounded-full w-20 h-20 flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-300">
-					<svg className="w-8 h-8 text-accentSolid ml-1" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-						<path d="M8 5v14l11-7z" />
-					</svg>
+		<div className="flex flex-col gap-4">
+			{highlights.map((h) => (
+				<div
+					key={h.title}
+					className="flex items-start gap-4 p-5 rounded-2xl bg-white/70 dark:bg-accentBg-dark/70 backdrop-blur-sm border border-accentLine/60 dark:border-accentLine-dark shadow-sm hover:shadow-md transition-shadow duration-200"
+				>
+					<div className="shrink-0 w-11 h-11 rounded-xl bg-accentBg dark:bg-accentBgHover-dark flex items-center justify-center text-accentSolid dark:text-accentText-dark">
+						{h.icon}
+					</div>
+					<div>
+						<p className="font-heading font-bold text-accentTextContrast dark:text-accentTextContrast-dark leading-snug">
+							{h.title}
+						</p>
+						<p className="text-sm text-gray-500 dark:text-gray-400 mt-0.5 leading-relaxed">
+							{h.desc}
+						</p>
+					</div>
+					<a
+						href="#courses"
+						aria-label={`Learn more about ${h.title}`}
+						className="ml-auto shrink-0 self-center text-accentSolid dark:text-accentText-dark hover:text-accentSolidHover transition-colors"
+					>
+						<svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+							<path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+						</svg>
+					</a>
 				</div>
-			</div>
-			<div className="absolute bottom-4 left-4 bg-black/60 text-white text-xs font-medium px-3 py-1 rounded-full backdrop-blur-sm">
-				Watch Introduction
-			</div>
-		</button>
+			))}
+		</div>
 	);
 }
 
@@ -147,7 +164,7 @@ function Heropage2() {
 					animate={fadeSlideRight.animate}
 					transition={fadeSlideRight.transition}
 				>
-					<VideoPlayer />
+					<CourseHighlights />
 				</motion.div>
 			</div>
 		</section>
