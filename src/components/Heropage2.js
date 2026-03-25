@@ -1,81 +1,78 @@
-import { Toast } from "./toast";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+
+const YOUTUBE_URL = "https://www.youtube.com/embed/JFsznAyAEMY";
+
 function Heropage2() {
-	const youtube_link = "https://www.youtube.com/embed/JFsznAyAEMY";
-	const [link, setLink] = useState(youtube_link);
+	const [videoSrc, setVideoSrc] = useState(YOUTUBE_URL);
+
 	return (
 		<AnimatePresence>
-			<div
-				className='bg-accentBgSubtle h-fit font-sans dark:bg-accentBgSubtle-dark pb-7'
-				// initial={{ opacity: 0 }}
-				// whileInView={{ opacity: 1 }}
-				// initial={{x : '-100vw'}}
-				// animate={{x:0}}
-				// transition={{ type:'spring',duration:1,bounce:0.3}}
+			<section
+				id='home'
+				className='bg-accentBgSubtle dark:bg-accentBgSubtle-dark pb-16 pt-8 px-4'
 			>
-				{/* <Navbar />  */}
-				{/* Hero page content  */}
-				<div className='grid md:grid-cols-2 gap-3 mx-2 md:mx-9  py-6 sm:px-1.5 overflow-hidden'>
+				<div className='max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center'>
 					<motion.div
-						className='grid md:content-around gap-3  overflow-hidden'
+						className='flex flex-col gap-6'
 						initial={{ x: "-100vw" }}
 						animate={{ x: 0 }}
-						transition={{ type: "spring", duration: 3, bounce: 0.3 }}
+						transition={{ type: "spring", duration: 0.8, bounce: 0.3 }}
 					>
-						<h1 className='max-w-2xl  text-4xl leading-10 sm:max-md:leading-5 font-extrabold tracking-widest  md:text-6xl xl:text-7xl text-left '>
-							<span
-								className=' bg-clip-text text-transparent  bg-gradient-to-r
-						 from-accentTextContrast via-accentText to-accentTextContrast dark:from-accentTextContrast-dark dark:via-accentText-dark dark:to-accentTextContrast-dark'
-							>
+						<h1 className='text-4xl md:text-5xl xl:text-6xl font-extrabold tracking-tight leading-tight'>
+							<span className='bg-clip-text text-transparent bg-gradient-to-r from-accentTextContrast via-accentText to-accentTextContrast dark:from-accentTextContrast-dark dark:via-accentText-dark dark:to-accentTextContrast-dark'>
 								Discover The Beauty of Islam
 							</span>
 						</h1>
-
-						<p className=' max-w-2xl mb-6 font-medium text-lg text-start text-accentText dark:text-accentText-dark leading-10 antialiased '>
+						<p className='text-lg text-accentText dark:text-accentText-dark leading-8 max-w-lg'>
 							Join our Islamic Learning Website today and dive into a wealth of
 							knowledge about the faith. Enhance your understanding, deepen your
-							faith and connect with a community of like-minded individuals.
-							Start today !
+							faith, and connect with a community of like-minded individuals.
 						</p>
-						<a
-								href='#'
-								className=' w-48 mb-5 md:mb-0 mx-auto md:mx-0 md:w-fit md:inline-flex font-medium text-accentTextContrast tracking-wider
-                items-center text-decoration-none  px-5 py-3    ring-offset-2  border  rounded dark:text-accentTextContrast-dark
-                bg-accentSolid border-accentLine  hover:bg-accentSolidHover focus:ring-2 focus:ring-accentBorder
-                dark:bg-accentSolid-dark dark:border-accentLine-dark dark:hover:bg-accentSolidHover-dark  dark:focus:ring-2 dark:focus:ring-accentBgHover-dark
-
-                '
-								onClick={() => setLink(youtube_link + "?autoplay=1")}
+						<div className='flex flex-wrap gap-4'>
+							<button
+								className='inline-flex items-center gap-2 px-6 py-3 font-semibold rounded-lg
+								text-white bg-accentSolid border border-accentLine hover:bg-accentSolidHover
+								focus:ring-2 focus:outline-none focus:ring-accentBorder
+								dark:bg-accentSolid-dark dark:border-accentLine-dark dark:hover:bg-accentSolidHover-dark dark:focus:ring-accentBorder-dark
+								transition-colors duration-200'
+								onClick={() => setVideoSrc(YOUTUBE_URL + "?autoplay=1")}
 							>
-								<span>Watch Our Video</span>
+								<svg className='w-5 h-5' fill='currentColor' viewBox='0 0 20 20' aria-hidden='true'>
+									<path fillRule='evenodd' d='M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z' clipRule='evenodd' />
+								</svg>
+								Watch Our Video
+							</button>
+							<a
+								href='#courses'
+								className='inline-flex items-center gap-2 px-6 py-3 font-semibold rounded-lg
+								text-accentTextContrast dark:text-accentTextContrast-dark
+								border border-accentBorder dark:border-accentBorder-dark
+								hover:bg-accentBgHover dark:hover:bg-accentBgHover-dark
+								focus:ring-2 focus:outline-none focus:ring-accentBorder
+								transition-colors duration-200'
+							>
+								Explore Courses
 							</a>
-						{/* <Toast
-							title='Upgrade available'
-							content="We've just released Radix 3.0!"
-							open={true}
-						>
-							
-						</Toast> */}
+						</div>
 					</motion.div>
+
 					<motion.div
-						className='mx-auto w-full md:w-[95%] overflow-hidden'
-						// opacity
-						// initial={{ opacity: 0 }}
+						className='w-full'
 						initial={{ x: "100vw" }}
 						animate={{ x: 0 }}
-						transition={{ type: "spring", duration: 4, bounce: 0.3 }}
+						transition={{ type: "spring", duration: 0.9, bounce: 0.3 }}
 					>
 						<iframe
-							title='youtube-video'
-							className=' w-full aspect-video  rounded-md md:rounded-lg md:shadow-accentSolid md:dark:shadow-accentSolid-dark shadow-lg '
-							src={link}
+							title='Introduction to Islamic Education'
+							className='w-full aspect-video rounded-xl shadow-lg dark:shadow-accentSolid-dark'
+							src={videoSrc}
 							allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
 							allowFullScreen
 						></iframe>
 					</motion.div>
 				</div>
-			</div>
+			</section>
 		</AnimatePresence>
 	);
 }

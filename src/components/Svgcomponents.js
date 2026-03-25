@@ -71,10 +71,9 @@ export const Logomosque1 = ({className,...rest}) => (
   export const Logomosque3 = ({className,...rest}) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width={152}
-      height={137}
+      viewBox="0 0 152 137"
       fill="none"
-      className={` ${className}`}
+      className={`${className}`}
       {...rest}
     >
       <path
