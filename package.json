@@ -16,6 +16,9 @@
     "react-svg": "^16.1.5",
     "web-vitals": "^3.0.4"
   },
+    "engines": {
+    "node": "24.x"
+  },
   "scripts": {
     "watch": "tailwindcss -i ./src/input.css -o ./src/index.css --watch",
     "start": "react-scripts start",

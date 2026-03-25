@@ -6,4 +6,20 @@
   body {
     @apply font-sans antialiased;
   }
+  h1, h2, h3 {
+    @apply font-heading;
+  }
+}
+
+@layer utilities {
+  /* Subtle Islamic diamond-lattice pattern — used on hero + verse section */
+  .pattern-islamic {
+    background-image: url("data:image/svg+xml,%3Csvg width='56' height='56' viewBox='0 0 56 56' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23155e35' stroke-width='0.6' opacity='0.18'%3E%3Cpath d='M28 2L54 28L28 54L2 28Z'/%3E%3Cpath d='M28 14L42 28L28 42L14 28Z'/%3E%3Cpath d='M28 2L28 54'/%3E%3Cpath d='M2 28L54 28'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: 56px 56px;
+  }
+
+  .pattern-islamic-dark {
+    background-image: url("data:image/svg+xml,%3Csvg width='56' height='56' viewBox='0 0 56 56' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%2330a46c' stroke-width='0.6' opacity='0.12'%3E%3Cpath d='M28 2L54 28L28 54L2 28Z'/%3E%3Cpath d='M28 14L42 28L28 42L14 28Z'/%3E%3Cpath d='M28 2L28 54'/%3E%3Cpath d='M2 28L54 28'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: 56px 56px;
+  }
 }
