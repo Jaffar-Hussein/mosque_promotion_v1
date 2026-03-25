@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
 const VIDEO_ID = "JFsznAyAEMY";
 const EMBED_URL = `https://www.youtube.com/embed/${VIDEO_ID}`;
@@ -7,16 +7,25 @@ const THUMBNAIL_URL = `https://img.youtube.com/vi/${VIDEO_ID}/maxresdefault.jpg`
 
 function VideoPlayer() {
 	const [playing, setPlaying] = useState(false);
+	const [loaded, setLoaded] = useState(false);
 
 	if (playing) {
 		return (
-			<iframe
-				title="Introduction to Islamic Education"
-				className="w-full aspect-video rounded-2xl shadow-2xl"
-				src={`${EMBED_URL}?autoplay=1&rel=0&modestbranding=1`}
-				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-				allowFullScreen
-			/>
+			<div className="relative w-full aspect-video rounded-2xl shadow-2xl overflow-hidden bg-black">
+				{!loaded && (
+					<div className="absolute inset-0 flex items-center justify-center bg-black">
+						<div className="w-10 h-10 border-4 border-accentBorder border-t-accentSolid rounded-full animate-spin" aria-label="Loading video" />
+					</div>
+				)}
+				<iframe
+					title="Introduction to Islamic Education"
+					className="w-full h-full"
+					src={`${EMBED_URL}?autoplay=1&rel=0&modestbranding=1`}
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+					allowFullScreen
+					onLoad={() => setLoaded(true)}
+				/>
+			</div>
 		);
 	}
 
@@ -47,6 +56,16 @@ function VideoPlayer() {
 }
 
 function Heropage2() {
+	const reduceMotion = useReducedMotion();
+
+	const fadeSlideLeft = reduceMotion
+		? { initial: {}, animate: {}, transition: {} }
+		: { initial: { opacity: 0, x: -40 }, animate: { opacity: 1, x: 0 }, transition: { duration: 0.7, ease: "easeOut" } };
+
+	const fadeSlideRight = reduceMotion
+		? { initial: {}, animate: {}, transition: {} }
+		: { initial: { opacity: 0, x: 40 }, animate: { opacity: 1, x: 0 }, transition: { duration: 0.7, ease: "easeOut", delay: 0.15 } };
+
 	return (
 		<section
 			id="home"
@@ -65,9 +84,9 @@ function Heropage2() {
 				{/* Text column */}
 				<motion.div
 					className="flex flex-col gap-7"
-					initial={{ opacity: 0, x: -40 }}
-					animate={{ opacity: 1, x: 0 }}
-					transition={{ duration: 0.7, ease: "easeOut" }}
+					initial={fadeSlideLeft.initial}
+					animate={fadeSlideLeft.animate}
+					transition={fadeSlideLeft.transition}
 				>
 					{/* Badge */}
 					<span className="inline-flex items-center gap-2 self-start bg-white/80 dark:bg-accentBg-dark/80 border border-accentBorder dark:border-accentBorder-dark text-accentText dark:text-accentText-dark text-sm font-medium px-4 py-1.5 rounded-full backdrop-blur-sm shadow-sm">
@@ -132,9 +151,9 @@ function Heropage2() {
 
 				{/* Video column */}
 				<motion.div
-					initial={{ opacity: 0, x: 40 }}
-					animate={{ opacity: 1, x: 0 }}
-					transition={{ duration: 0.7, ease: "easeOut", delay: 0.15 }}
+					initial={fadeSlideRight.initial}
+					animate={fadeSlideRight.animate}
+					transition={fadeSlideRight.transition}
 				>
 					<VideoPlayer />
 				</motion.div>

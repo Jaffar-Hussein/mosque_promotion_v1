@@ -1,14 +1,25 @@
 import { useState } from "react";
 
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 function Newsletter() {
 	const [email, setEmail] = useState("");
 	const [submitted, setSubmitted] = useState(false);
+	const [error, setError] = useState("");
 
 	function handleSubmit(e) {
 		e.preventDefault();
-		if (email.trim()) {
-			setSubmitted(true);
+		if (!email.trim() || !EMAIL_RE.test(email)) {
+			setError("Please enter a valid email address.");
+			return;
 		}
+		setError("");
+		setSubmitted(true);
+	}
+
+	function handleReset() {
+		setEmail("");
+		setSubmitted(false);
 	}
 
 	return (
@@ -44,39 +55,53 @@ function Newsletter() {
 						<p className="text-gray-500 dark:text-gray-400 text-sm">
 							You're subscribed. We'll be in touch soon.
 						</p>
+						<button
+							onClick={handleReset}
+							className="text-xs text-accentSolid dark:text-accentText-dark underline underline-offset-2 hover:text-accentSolidHover transition-colors"
+						>
+							Subscribe another address
+						</button>
 					</div>
 				) : (
 					<form
 						onSubmit={handleSubmit}
-						className="w-full flex flex-col sm:flex-row gap-3 mt-2"
+						className="w-full flex flex-col gap-3 mt-2"
 					>
 						<label htmlFor="newsletter-email" className="sr-only">
 							Email address
 						</label>
-						<input
-							id="newsletter-email"
-							type="email"
-							value={email}
-							onChange={(e) => setEmail(e.target.value)}
-							placeholder="Enter your email address"
-							required
-							className="flex-1 px-5 py-3.5 rounded-xl border border-accentBorder dark:border-accentBorder-dark
-							bg-white dark:bg-accentBg-dark
-							text-accentTextContrast dark:text-accentTextContrast-dark
-							placeholder-gray-400
-							focus:outline-none focus:ring-2 focus:ring-accentBorder dark:focus:ring-accentBorder-dark
-							transition-colors text-sm"
-						/>
-						<button
-							type="submit"
-							className="px-6 py-3.5 rounded-xl font-semibold text-white
-							bg-accentSolid hover:bg-accentSolidHover
-							shadow-lg shadow-accentSolid/30 hover:shadow-accentSolid/50
-							focus:outline-none focus:ring-2 focus:ring-accentBorder
-							transition-all duration-200 whitespace-nowrap text-sm"
-						>
-							Subscribe
-						</button>
+						<div className="flex flex-col sm:flex-row gap-3">
+							<input
+								id="newsletter-email"
+								type="email"
+								value={email}
+								onChange={(e) => { setEmail(e.target.value); setError(""); }}
+								placeholder="Enter your email address"
+								aria-describedby={error ? "newsletter-error" : undefined}
+								className={`flex-1 px-5 py-3.5 rounded-xl border
+								${error ? "border-red-400 dark:border-red-500" : "border-accentBorder dark:border-accentBorder-dark"}
+								bg-white dark:bg-accentBg-dark
+								text-accentTextContrast dark:text-accentTextContrast-dark
+								placeholder-gray-400
+								focus:outline-none focus:ring-2 focus:ring-accentBorder dark:focus:ring-accentBorder-dark
+								transition-colors text-sm`}
+							/>
+							<button
+								type="submit"
+								className="px-6 py-3.5 rounded-xl font-semibold text-white
+								bg-accentSolid hover:bg-accentSolidHover
+								shadow-lg shadow-accentSolid/30 hover:shadow-accentSolid/50
+								focus:outline-none focus:ring-2 focus:ring-accentBorder
+								transition-all duration-200 whitespace-nowrap text-sm"
+							>
+								Subscribe
+							</button>
+						</div>
+						{error && (
+							<p id="newsletter-error" role="alert" className="text-left text-xs text-red-500 dark:text-red-400">
+								{error}
+							</p>
+						)}
 					</form>
 				)}
 

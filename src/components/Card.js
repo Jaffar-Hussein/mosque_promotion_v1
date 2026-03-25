@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 function Card({ description, name, index }) {
 	const num = String(index + 1).padStart(2, "0");
 
@@ -44,5 +46,11 @@ function Card({ description, name, index }) {
 		</div>
 	);
 }
+
+Card.propTypes = {
+	name: PropTypes.string.isRequired,
+	description: PropTypes.string.isRequired,
+	index: PropTypes.number.isRequired,
+};
 
 export default Card;
