@@ -7,25 +7,17 @@ const THUMBNAIL_URL = `https://img.youtube.com/vi/${VIDEO_ID}/maxresdefault.jpg`
 
 function VideoPlayer() {
 	const [playing, setPlaying] = useState(false);
-	const [loaded, setLoaded] = useState(false);
 
 	if (playing) {
 		return (
-			<div className="relative w-full aspect-video rounded-2xl shadow-2xl overflow-hidden bg-black">
-				{!loaded && (
-					<div className="absolute inset-0 flex items-center justify-center bg-black">
-						<div className="w-10 h-10 border-4 border-accentBorder border-t-accentSolid rounded-full animate-spin" aria-label="Loading video" />
-					</div>
-				)}
-				<iframe
-					title="Introduction to Islamic Education"
-					className="w-full h-full"
-					src={`${EMBED_URL}?autoplay=1&rel=0&modestbranding=1`}
-					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-					allowFullScreen
-					onLoad={() => setLoaded(true)}
-				/>
-			</div>
+			<iframe
+				title="Introduction to Islamic Education"
+				className="w-full aspect-video rounded-2xl shadow-2xl"
+				src={`${EMBED_URL}?autoplay=1&rel=0&modestbranding=1`}
+				frameBorder="0"
+				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+				allowFullScreen
+			/>
 		);
 	}
 
