@@ -1,25 +1,5 @@
 import Card from "./Card";
-
-const courses = [
-	{
-		id: 1,
-		name: "Tajwid",
-		description:
-			"Learn the rules of correct Quranic recitation — pronunciation of letters, their characteristics, and the traditional methods passed down through generations of scholars.",
-	},
-	{
-		id: 2,
-		name: "Tafsir",
-		description:
-			"Deepen your understanding of Quranic verses through expert commentary, exploring historical context, linguistic nuances, and the theological meaning of each passage.",
-	},
-	{
-		id: 3,
-		name: "Memorisation",
-		description:
-			"Commit the words of Allah to heart with our structured memorisation program, guided by qualified teachers who support you at every stage of your journey.",
-	},
-];
+import { courses } from "../data/courseData";
 
 function Courses() {
 	return (
@@ -52,6 +32,7 @@ function Courses() {
 							name={course.name}
 							description={course.description}
 							index={index}
+							slug={course.slug}
 						/>
 					))}
 				</div>

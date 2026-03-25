@@ -1,4 +1,5 @@
 import "./App.css";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import About from "./components/About";
 import Band from "./components/Band";
 import Heropage2 from "./components/Heropage2";
@@ -8,21 +9,34 @@ import Newsletter from "./components/Newsletter";
 import { ToastProvider } from "@radix-ui/react-toast";
 import Navbar from "./components/Navbar";
 import { Logomosque3 } from "./components/Svgcomponents";
+import CoursePage from "./pages/CoursePage";
+import { courses } from "./data/courseData";
 
-function App() {
+function HomePage() {
+	return (
+		<>
+			<Heropage2 />
+			<Band />
+			<Verse />
+			<About />
+			<Courses />
+			<section id="newsletter">
+				<Newsletter />
+			</section>
+		</>
+	);
+}
+
+function Layout() {
 	return (
 		<ToastProvider>
 			<div className="min-h-screen bg-white dark:bg-accentBase-dark">
 				<Navbar />
 				<main>
-					<Heropage2 />
-					<Band />
-					<Verse />
-					<About />
-					<Courses />
-					<section id="newsletter">
-						<Newsletter />
-					</section>
+					<Routes>
+						<Route path="/" element={<HomePage />} />
+						<Route path="/course/:slug" element={<CoursePage />} />
+					</Routes>
 				</main>
 
 				<footer id="contact" className="bg-accentTextContrast dark:bg-gray-950">
@@ -42,10 +56,10 @@ function App() {
 								Navigation
 							</p>
 							{[
-								{ label: "Home",    href: "#home" },
-								{ label: "About Us",href: "#about" },
-								{ label: "Courses", href: "#courses" },
-								{ label: "Newsletter", href: "#newsletter" },
+								{ label: "Home",       href: "/#home" },
+								{ label: "About Us",   href: "/#about" },
+								{ label: "Courses",    href: "/#courses" },
+								{ label: "Newsletter", href: "/#newsletter" },
 							].map(({ label, href }) => (
 								<a key={label} href={href} className="text-gray-400 hover:text-white text-sm transition-colors duration-150">
 									{label}
@@ -58,10 +72,14 @@ function App() {
 							<p className="text-white font-semibold text-xs uppercase tracking-widest mb-2">
 								Courses
 							</p>
-							{["Tajwid", "Tafsir", "Memorisation"].map((course) => (
-								<a key={course} href="#courses" className="text-gray-400 hover:text-white text-sm transition-colors duration-150">
-									{course}
-								</a>
+							{courses.map((c) => (
+								<Link
+									key={c.slug}
+									to={`/course/${c.slug}`}
+									className="text-gray-400 hover:text-white text-sm transition-colors duration-150"
+								>
+									{c.name}
+								</Link>
 							))}
 						</div>
 					</div>
@@ -74,6 +92,14 @@ function App() {
 				</footer>
 			</div>
 		</ToastProvider>
+	);
+}
+
+function App() {
+	return (
+		<BrowserRouter>
+			<Layout />
+		</BrowserRouter>
 	);
 }
 

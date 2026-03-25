@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
-function Card({ description, name, index }) {
+function Card({ description, name, index, slug }) {
 	const num = String(index + 1).padStart(2, "0");
 
 	return (
@@ -32,15 +33,15 @@ function Card({ description, name, index }) {
 						</svg>
 						Free
 					</span>
-					<a
-						href="#newsletter"
+					<Link
+						to={`/course/${slug}`}
 						className="inline-flex items-center gap-1.5 text-sm font-semibold text-accentSolid dark:text-accentText-dark hover:text-accentSolidHover transition-colors duration-200 group/link"
 					>
-						Enrol Now
+						View Course
 						<svg className="w-4 h-4 group-hover/link:translate-x-0.5 transition-transform" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
 							<path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
 						</svg>
-					</a>
+					</Link>
 				</div>
 			</div>
 		</div>
@@ -51,6 +52,7 @@ Card.propTypes = {
 	name: PropTypes.string.isRequired,
 	description: PropTypes.string.isRequired,
 	index: PropTypes.number.isRequired,
+	slug: PropTypes.string.isRequired,
 };
 
 export default Card;

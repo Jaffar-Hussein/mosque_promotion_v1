@@ -3,21 +3,15 @@ import { Dialog, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import { AnimatePresence } from "framer-motion";
+import { Link, useNavigate } from "react-router-dom";
 import { Logomosque3 } from "./Svgcomponents";
+import { courses } from "../data/courseData";
 
 const navigation = [
-	{ name: "Home", href: "#home" },
-	{ name: "About Us", href: "#about" },
-	{ name: "Courses", href: "#courses" },
-	{ name: "Contact Us", href: "#contact" },
-];
-
-const courseItems = [
-	"Initiation",
-	"Tajweed",
-	"Tafsir",
-	"Application of Rules",
-	"Memorization",
+	{ name: "Home", href: "/#home" },
+	{ name: "About Us", href: "/#about" },
+	{ name: "Courses", href: "/#courses" },
+	{ name: "Contact Us", href: "/#contact" },
 ];
 
 function toggleDarkMode() {
@@ -70,22 +64,23 @@ function DarkModeToggle({ className = "" }) {
 
 function Navbar() {
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+	const navigate = useNavigate();
 
 	return (
 		<>
 			<nav className='sticky top-0 z-30 bg-accentBgSubtle/80 dark:bg-accentBgSubtle-dark/80 backdrop-blur backdrop-filter border-b border-accentLine dark:border-accentLine-dark font-sans'>
 				<div className='max-w-6xl mx-auto px-4 py-3 flex items-center justify-between'>
 					{/* Logo */}
-					<a href='#home' aria-label='Go to top' className='flex items-center'>
+					<Link to='/' aria-label='Go to home' className='flex items-center'>
 						<Logomosque3 className='h-16 w-auto' />
-					</a>
+					</Link>
 
 					{/* Desktop nav */}
 					<div className='hidden md:flex items-center gap-8'>
-						<a href='#home' className='text-accentTextContrast dark:text-accentTextContrast-dark font-medium hover:text-accentText dark:hover:text-accentText-dark transition-colors duration-150'>
+						<a href='/#home' className='text-accentTextContrast dark:text-accentTextContrast-dark font-medium hover:text-accentText dark:hover:text-accentText-dark transition-colors duration-150'>
 							Home
 						</a>
-						<a href='#about' className='text-accentTextContrast dark:text-accentTextContrast-dark font-medium hover:text-accentText dark:hover:text-accentText-dark transition-colors duration-150'>
+						<a href='/#about' className='text-accentTextContrast dark:text-accentTextContrast-dark font-medium hover:text-accentText dark:hover:text-accentText-dark transition-colors duration-150'>
 							About Us
 						</a>
 
@@ -103,20 +98,20 @@ function Navbar() {
 									sideOffset={8}
 									className='bg-accentBase dark:bg-accentBase-dark w-52 py-2 rounded-xl shadow-lg border border-accentLine dark:border-accentLine-dark text-accentText dark:text-accentTextContrast-dark z-50'
 								>
-									{courseItems.map((item) => (
+									{courses.map((course) => (
 										<DropdownMenu.Item
-											key={item}
+											key={course.slug}
 											className='font-light hover:bg-accentBgHover dark:hover:bg-accentBgHover-dark outline-none rounded-md mx-1 py-2 px-3 cursor-pointer'
-											onSelect={() => document.getElementById("courses")?.scrollIntoView({ behavior: "smooth" })}
+											onSelect={() => navigate(`/course/${course.slug}`)}
 										>
-											{item}
+											{course.name}
 										</DropdownMenu.Item>
 									))}
 								</DropdownMenu.Content>
 							</DropdownMenu.Portal>
 						</DropdownMenu.Root>
 
-						<a href='#contact' className='text-accentTextContrast dark:text-accentTextContrast-dark font-medium hover:text-accentText dark:hover:text-accentText-dark transition-colors duration-150'>
+						<a href='/#contact' className='text-accentTextContrast dark:text-accentTextContrast-dark font-medium hover:text-accentText dark:hover:text-accentText-dark transition-colors duration-150'>
 							Contact Us
 						</a>
 
