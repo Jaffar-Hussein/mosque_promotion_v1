@@ -429,8 +429,8 @@ export default function CoursePage() {
 									<span className="text-sm text-gray-600 dark:text-gray-300 group-hover:text-accentTextContrast dark:group-hover:text-accentTextContrast-dark transition-colors flex-1">
 										{c.name}
 									</span>
-									<svg className="w-3.5 h-3.5 text-gray-400 group-hover:text-accentSolid group-hover:translate-x-0.5 transition-all shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-										<path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+									<svg className="w-4 h-4 text-gray-400 group-hover:text-accentSolid dark:group-hover:text-accentText-dark transition-colors shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+										<path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
 									</svg>
 								</Link>
 							))}
