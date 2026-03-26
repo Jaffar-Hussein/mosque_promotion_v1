@@ -3,21 +3,39 @@ import { useParams, Link } from "react-router-dom";
 import { getCourseBySlug, getAdjacentCourses } from "../data/courseData";
 
 /* ─── Video Player ─────────────────────────────────────── */
-function VideoPlayer({ videoId, note }) {
+function VideoPlayer({ videoId, note, color }) {
 	const [playing, setPlaying] = useState(false);
 	const THUMB = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
 	const EMBED = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`;
 
 	if (!videoId) {
 		return (
-			<div className="w-full aspect-video rounded-2xl bg-accentBg dark:bg-accentBg-dark border border-accentBorder dark:border-accentBorder-dark flex flex-col items-center justify-center gap-3 text-center px-6">
-				<div className="w-14 h-14 rounded-full bg-accentBgHover dark:bg-accentBgHover-dark flex items-center justify-center">
-					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7 text-accentSolid dark:text-accentText-dark">
-						<path strokeLinecap="round" strokeLinejoin="round" d="M3.375 19.5h17.25m-17.25 0a1.125 1.125 0 01-1.125-1.125M3.375 19.5h7.5c.621 0 1.125-.504 1.125-1.125m-9.75 0V5.625m0 12.75v-1.5c0-.621.504-1.125 1.125-1.125m18.375 2.625V5.625m0 12.75c0 .621-.504 1.125-1.125 1.125m1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125m0 3.75h-7.5A1.125 1.125 0 0112 18.375m9.75-12.75c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125m19.5 0v1.5c0 .621-.504 1.125-1.125 1.125M2.25 5.625v1.5c0 .621.504 1.125 1.125 1.125m0 0h17.25m-17.25 0h7.5c.621 0 1.125.504 1.125 1.125M3.375 8.25c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125m17.25-3.75h-7.5c-.621 0-1.125.504-1.125 1.125m8.625-1.125c.621 0 1.125.504 1.125 1.125v1.5c0 .621-.504 1.125-1.125 1.125" />
-					</svg>
+			<div className="w-full aspect-video rounded-2xl overflow-hidden relative border border-accentBorder dark:border-accentBorder-dark">
+				{/* Course-colour tint layer */}
+				<div className={`absolute inset-0 bg-gradient-to-br ${color} opacity-10`} />
+				<div aria-hidden="true" className="absolute inset-0 pattern-islamic opacity-20" />
+				<div className="relative w-full h-full flex flex-col items-center justify-center gap-5 bg-accentBg/95 dark:bg-accentBg-dark/95">
+					{/* Play ring */}
+					<div className="relative">
+						<div className="w-20 h-20 rounded-full bg-accentBgHover dark:bg-accentBgHover-dark flex items-center justify-center">
+							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-9 h-9 text-accentSolid dark:text-accentText-dark">
+								<path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 010 1.972l-11.54 6.347a1.125 1.125 0 01-1.667-.986V5.653z" />
+							</svg>
+						</div>
+					</div>
+					<div className="text-center px-6">
+						<p className="font-heading font-bold text-accentTextContrast dark:text-accentTextContrast-dark text-lg">
+							Video Coming Soon
+						</p>
+						<p className="text-sm text-gray-500 dark:text-gray-400 mt-1 max-w-xs mx-auto leading-relaxed">
+							{note}
+						</p>
+					</div>
+					<div className="flex items-center gap-2 text-xs text-gray-400 dark:text-gray-500">
+						<span className="w-2 h-2 rounded-full bg-accentSolid animate-pulse" aria-hidden="true" />
+						Recording in progress — check back soon
+					</div>
 				</div>
-				<p className="font-heading font-bold text-accentTextContrast dark:text-accentTextContrast-dark">Video Coming Soon</p>
-				<p className="text-sm text-gray-500 dark:text-gray-400 max-w-xs">{note}</p>
 			</div>
 		);
 	}
@@ -54,28 +72,37 @@ function VideoPlayer({ videoId, note }) {
 	);
 }
 
-/* ─── Accordion item for curriculum ───────────────────── */
+/* ─── Animated Accordion ───────────────────────────────── */
 function AccordionItem({ module, lessons, defaultOpen }) {
 	const [open, setOpen] = useState(defaultOpen || false);
 	return (
 		<div className="border border-accentLine dark:border-accentLine-dark rounded-xl overflow-hidden">
 			<button
-				className="w-full flex items-center justify-between px-5 py-4 bg-accentBg/50 dark:bg-accentBg-dark/50 hover:bg-accentBgHover dark:hover:bg-accentBgHover-dark transition-colors text-left"
+				className="w-full flex items-center gap-3 px-5 py-4 bg-accentBg/50 dark:bg-accentBg-dark/50 hover:bg-accentBgHover dark:hover:bg-accentBgHover-dark transition-colors text-left"
 				onClick={() => setOpen(!open)}
 				aria-expanded={open}
 			>
-				<span className="font-semibold text-accentTextContrast dark:text-accentTextContrast-dark text-sm">{module}</span>
+				<span className="font-semibold text-accentTextContrast dark:text-accentTextContrast-dark text-sm flex-1 leading-snug">
+					{module}
+				</span>
+				<span className="shrink-0 text-xs text-gray-400 dark:text-gray-500 tabular-nums whitespace-nowrap">
+					{lessons.length} lesson{lessons.length !== 1 ? "s" : ""}
+				</span>
 				<svg
 					className={`w-5 h-5 text-accentSolid dark:text-accentText-dark transition-transform duration-300 shrink-0 ${open ? "rotate-180" : ""}`}
-					fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}
+					fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true"
 				>
 					<path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
 				</svg>
 			</button>
-			{open && (
-				<ul className="px-5 py-3 flex flex-col gap-2.5 bg-white dark:bg-accentBase-dark">
+
+			{/* Smooth slide animation via max-height */}
+			<div
+				className={`overflow-hidden transition-all duration-300 ease-in-out ${open ? "max-h-screen" : "max-h-0"}`}
+			>
+				<ul className="px-5 py-3 flex flex-col gap-3 bg-white dark:bg-accentBase-dark border-t border-accentLine/50 dark:border-accentLine-dark/50">
 					{lessons.map((lesson, i) => (
-						<li key={i} className="flex items-start gap-3 text-sm text-gray-600 dark:text-gray-300">
+						<li key={i} className="flex items-start gap-3 text-sm text-gray-600 dark:text-gray-300 py-0.5">
 							<span className="mt-0.5 shrink-0 w-5 h-5 rounded-full bg-accentBg dark:bg-accentBg-dark flex items-center justify-center text-[10px] font-bold text-accentSolid dark:text-accentText-dark">
 								{i + 1}
 							</span>
@@ -83,8 +110,44 @@ function AccordionItem({ module, lessons, defaultOpen }) {
 						</li>
 					))}
 				</ul>
-			)}
+			</div>
 		</div>
+	);
+}
+
+/* ─── Share button ─────────────────────────────────────── */
+function ShareButton() {
+	const [copied, setCopied] = useState(false);
+
+	function handleCopy() {
+		navigator.clipboard.writeText(window.location.href).then(() => {
+			setCopied(true);
+			setTimeout(() => setCopied(false), 2000);
+		});
+	}
+
+	return (
+		<button
+			onClick={handleCopy}
+			aria-label="Copy page link"
+			className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium text-white/90 border border-white/30 hover:border-white/70 hover:bg-white/10 transition-all duration-200"
+		>
+			{copied ? (
+				<>
+					<svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+						<path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+					</svg>
+					Copied!
+				</>
+			) : (
+				<>
+					<svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+						<path strokeLinecap="round" strokeLinejoin="round" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+					</svg>
+					Share
+				</>
+			)}
+		</button>
 	);
 }
 
@@ -97,11 +160,17 @@ export default function CoursePage() {
 	if (!course) {
 		return (
 			<div className="min-h-screen flex flex-col items-center justify-center gap-4 px-4 bg-white dark:bg-accentBase-dark">
-				<p className="font-heading text-2xl font-bold text-accentTextContrast dark:text-accentTextContrast-dark">Course not found.</p>
-				<Link to="/" className="text-accentSolid dark:text-accentText-dark underline underline-offset-2 text-sm">← Back to home</Link>
+				<p className="font-heading text-2xl font-bold text-accentTextContrast dark:text-accentTextContrast-dark">
+					Course not found.
+				</p>
+				<Link to="/" className="text-accentSolid dark:text-accentText-dark underline underline-offset-2 text-sm">
+					← Back to home
+				</Link>
 			</div>
 		);
 	}
+
+	const totalLessons = course.curriculum.reduce((sum, m) => sum + m.lessons.length, 0);
 
 	return (
 		<div className="bg-white dark:bg-accentBase-dark min-h-screen">
@@ -109,11 +178,20 @@ export default function CoursePage() {
 			{/* ── Breadcrumb ── */}
 			<div className="bg-accentBgSubtle dark:bg-accentBgSubtle-dark border-b border-accentLine dark:border-accentLine-dark px-4 py-3">
 				<div className="max-w-6xl mx-auto flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
-					<Link to="/" className="hover:text-accentSolid dark:hover:text-accentText-dark transition-colors">Home</Link>
-					<span>/</span>
-					<Link to="/#courses" className="hover:text-accentSolid dark:hover:text-accentText-dark transition-colors">Courses</Link>
-					<span>/</span>
-					<span className="text-accentTextContrast dark:text-accentTextContrast-dark font-medium">{course.name}</span>
+					<Link to="/" className="hover:text-accentSolid dark:hover:text-accentText-dark transition-colors flex items-center gap-1">
+						<svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+							<path strokeLinecap="round" strokeLinejoin="round" d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+						</svg>
+						Home
+					</Link>
+					<span aria-hidden="true">/</span>
+					<a href="/#courses" className="hover:text-accentSolid dark:hover:text-accentText-dark transition-colors">
+						Courses
+					</a>
+					<span aria-hidden="true">/</span>
+					<span className="text-accentTextContrast dark:text-accentTextContrast-dark font-medium" aria-current="page">
+						{course.name}
+					</span>
 				</div>
 			</div>
 
@@ -130,32 +208,29 @@ export default function CoursePage() {
 						</h1>
 						<p className="text-xl font-medium text-white/80">{course.tagline}</p>
 						<p className="text-white/70 leading-relaxed max-w-lg">{course.description}</p>
-						<div className="flex flex-wrap gap-4 pt-2">
+						<div className="flex flex-wrap gap-3 pt-2">
 							<a
 								href="#enroll"
-								className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold bg-white text-accentSolid hover:bg-gray-100 shadow-lg transition-all duration-200"
+								className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold bg-white text-accentSolid hover:bg-gray-100 shadow-lg transition-all duration-200 text-sm"
 							>
 								Enrol for Free
-								<svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" /></svg>
+								<svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+									<path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+								</svg>
 							</a>
-							<Link
-								to="/"
-								className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-white border-2 border-white/40 hover:border-white/80 hover:bg-white/10 transition-all duration-200"
-							>
-								← All Courses
-							</Link>
+							<ShareButton />
 						</div>
 					</div>
 
 					{/* Stats card */}
 					<div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6 grid grid-cols-2 gap-5">
 						{[
-							{ icon: "📚", label: "Lessons", value: course.lessons },
-							{ icon: "⏱️", label: "Duration", value: course.duration },
-							{ icon: "🎯", label: "Level", value: course.level },
-							{ icon: "🌐", label: "Language", value: course.language },
+							{ icon: "📚", label: "Lessons",     value: course.lessons },
+							{ icon: "⏱️", label: "Duration",    value: course.duration },
+							{ icon: "🎯", label: "Level",       value: course.level },
+							{ icon: "🌐", label: "Language",    value: course.language },
 							{ icon: "🏅", label: "Certificate", value: course.certificate ? "Included" : "No" },
-							{ icon: "💰", label: "Cost", value: "100% Free" },
+							{ icon: "💰", label: "Cost",        value: "100% Free" },
 						].map(({ icon, label, value }) => (
 							<div key={label} className="flex flex-col gap-0.5">
 								<span className="text-white/60 text-xs uppercase tracking-wider">{icon} {label}</span>
@@ -176,7 +251,7 @@ export default function CoursePage() {
 					<section>
 						<SectionHeading>Course Introduction</SectionHeading>
 						<div className="mt-5">
-							<VideoPlayer videoId={course.videoId} note={course.videoNote} />
+							<VideoPlayer videoId={course.videoId} note={course.videoNote} color={course.color} />
 						</div>
 					</section>
 
@@ -185,8 +260,11 @@ export default function CoursePage() {
 						<SectionHeading>What You'll Learn</SectionHeading>
 						<div className="mt-5 grid sm:grid-cols-2 gap-3">
 							{course.whatYouLearn.map((item, i) => (
-								<div key={i} className="flex items-start gap-3 bg-accentBg/50 dark:bg-accentBg-dark/40 rounded-xl p-4 border border-accentLine/50 dark:border-accentLine-dark/50">
-									<svg className="w-5 h-5 text-accentSolid dark:text-accentText-dark mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+								<div
+									key={i}
+									className="flex items-start gap-3 bg-accentBg/50 dark:bg-accentBg-dark/40 rounded-xl p-4 border border-accentLine/50 dark:border-accentLine-dark/50"
+								>
+									<svg className="w-5 h-5 text-accentSolid dark:text-accentText-dark mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
 										<path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
 									</svg>
 									<span className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">{item}</span>
@@ -199,11 +277,16 @@ export default function CoursePage() {
 					<section>
 						<SectionHeading>Course Curriculum</SectionHeading>
 						<p className="text-sm text-gray-500 dark:text-gray-400 mt-1 mb-5">
-							{course.lessons} lessons across {course.curriculum.length} modules
+							{totalLessons} lessons across {course.curriculum.length} modules
 						</p>
 						<div className="flex flex-col gap-3">
 							{course.curriculum.map((item, i) => (
-								<AccordionItem key={i} module={item.module} lessons={item.lessons} defaultOpen={i === 0} />
+								<AccordionItem
+									key={i}
+									module={item.module}
+									lessons={item.lessons}
+									defaultOpen={i === 0}
+								/>
 							))}
 						</div>
 					</section>
@@ -214,7 +297,7 @@ export default function CoursePage() {
 						<ul className="mt-5 flex flex-col gap-3">
 							{course.prerequisites.map((p, i) => (
 								<li key={i} className="flex items-start gap-3 text-sm text-gray-600 dark:text-gray-300">
-									<svg className="w-5 h-5 text-gold dark:text-gold shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+									<svg className="w-5 h-5 text-gold dark:text-gold shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
 										<path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
 									</svg>
 									{p}
@@ -228,10 +311,25 @@ export default function CoursePage() {
 						<SectionHeading>Frequently Asked Questions</SectionHeading>
 						<div className="mt-5 flex flex-col gap-4">
 							{course.faq.map((item, i) => (
-								<div key={i} className="rounded-xl border border-accentLine dark:border-accentLine-dark p-5">
-									<p className="font-semibold text-accentTextContrast dark:text-accentTextContrast-dark text-sm">{item.q}</p>
-									<p className="mt-2 text-sm text-gray-600 dark:text-gray-300 leading-relaxed">{item.a}</p>
-								</div>
+								<details
+									key={i}
+									className="group rounded-xl border border-accentLine dark:border-accentLine-dark overflow-hidden"
+								>
+									<summary className="flex items-center justify-between gap-3 px-5 py-4 cursor-pointer select-none bg-accentBg/30 dark:bg-accentBg-dark/30 hover:bg-accentBgHover dark:hover:bg-accentBgHover-dark transition-colors list-none">
+										<span className="font-semibold text-accentTextContrast dark:text-accentTextContrast-dark text-sm leading-snug">
+											{item.q}
+										</span>
+										<svg
+											className="w-5 h-5 text-accentSolid dark:text-accentText-dark shrink-0 transition-transform duration-200 group-open:rotate-180"
+											fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true"
+										>
+											<path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+										</svg>
+									</summary>
+									<div className="px-5 py-4 bg-white dark:bg-accentBase-dark border-t border-accentLine/50 dark:border-accentLine-dark/50">
+										<p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">{item.a}</p>
+									</div>
+								</details>
 							))}
 						</div>
 					</section>
@@ -241,10 +339,18 @@ export default function CoursePage() {
 				<div className="flex flex-col gap-6">
 
 					{/* Enrol card */}
-					<div id="enroll" className="sticky top-24 flex flex-col gap-4 bg-white dark:bg-accentBg-dark rounded-2xl border border-accentLine dark:border-accentLine-dark shadow-md p-6">
-						<p className="font-heading text-2xl font-bold text-accentTextContrast dark:text-accentTextContrast-dark">
-							Free Enrolment
-						</p>
+					<div
+						id="enroll"
+						className="sticky top-24 flex flex-col gap-4 bg-white dark:bg-accentBg-dark rounded-2xl border border-accentLine dark:border-accentLine-dark shadow-md p-6"
+					>
+						<div className="flex items-center justify-between">
+							<p className="font-heading text-xl font-bold text-accentTextContrast dark:text-accentTextContrast-dark">
+								Free Enrolment
+							</p>
+							<span className="text-xs font-bold text-accentSolid dark:text-accentText-dark bg-accentBg dark:bg-accentBg-dark px-2.5 py-1 rounded-full">
+								FREE
+							</span>
+						</div>
 						<p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
 							Subscribe to get notified when this course opens and receive all lesson updates directly to your inbox.
 						</p>
@@ -257,7 +363,7 @@ export default function CoursePage() {
 						<ul className="flex flex-col gap-2 pt-1">
 							{["100% free — no credit card", "Cancel anytime", "New lessons every week"].map((item) => (
 								<li key={item} className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400">
-									<svg className="w-4 h-4 text-accentSolid dark:text-accentText-dark shrink-0" fill="currentColor" viewBox="0 0 20 20">
+									<svg className="w-4 h-4 text-accentSolid dark:text-accentText-dark shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
 										<path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
 									</svg>
 									{item}
@@ -268,30 +374,36 @@ export default function CoursePage() {
 
 					{/* Instructor */}
 					<div className="bg-accentBgSubtle dark:bg-accentBgSubtle-dark rounded-2xl border border-accentLine dark:border-accentLine-dark p-6 flex flex-col gap-4">
-						<p className="text-xs font-semibold uppercase tracking-widest text-accentSolid dark:text-accentText-dark">Your Instructor</p>
+						<p className="text-xs font-semibold uppercase tracking-widest text-accentSolid dark:text-accentText-dark">
+							Your Instructor
+						</p>
 						<div className="flex items-center gap-3">
-							<div className="w-12 h-12 rounded-full bg-gradient-to-br from-accentSolid to-accentSolidHover flex items-center justify-center text-white font-bold font-heading text-lg shrink-0">
+							<div className={`w-12 h-12 rounded-full bg-gradient-to-br ${course.color} flex items-center justify-center text-white font-bold font-heading text-lg shrink-0`}>
 								{course.instructor.initials}
 							</div>
 							<div>
-								<p className="font-semibold text-sm text-accentTextContrast dark:text-accentTextContrast-dark">{course.instructor.name}</p>
+								<p className="font-semibold text-sm text-accentTextContrast dark:text-accentTextContrast-dark">
+									{course.instructor.name}
+								</p>
 								<p className="text-xs text-gray-500 dark:text-gray-400">{course.instructor.title}</p>
 							</div>
 						</div>
 						<p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">{course.instructor.bio}</p>
 					</div>
 
-					{/* Course stats */}
+					{/* Course details */}
 					<div className="bg-white dark:bg-accentBg-dark rounded-2xl border border-accentLine dark:border-accentLine-dark p-6">
-						<p className="text-xs font-semibold uppercase tracking-widest text-accentSolid dark:text-accentText-dark mb-4">Course Details</p>
+						<p className="text-xs font-semibold uppercase tracking-widest text-accentSolid dark:text-accentText-dark mb-4">
+							Course Details
+						</p>
 						<div className="flex flex-col divide-y divide-accentLine dark:divide-accentLine-dark">
 							{[
-								["Lessons", course.lessons],
-								["Duration", course.duration],
-								["Level", course.level],
-								["Language", course.language],
+								["Lessons",     course.lessons],
+								["Duration",    course.duration],
+								["Level",       course.level],
+								["Language",    course.language],
 								["Certificate", course.certificate ? "Yes, on completion" : "No"],
-								["Price", "Free"],
+								["Price",       "Free"],
 							].map(([k, v]) => (
 								<div key={k} className="flex justify-between py-2.5 text-sm">
 									<span className="text-gray-500 dark:text-gray-400">{k}</span>
@@ -300,23 +412,57 @@ export default function CoursePage() {
 							))}
 						</div>
 					</div>
+
+					{/* Other courses */}
+					<div className="bg-accentBgSubtle dark:bg-accentBgSubtle-dark rounded-2xl border border-accentLine dark:border-accentLine-dark p-6">
+						<p className="text-xs font-semibold uppercase tracking-widest text-accentSolid dark:text-accentText-dark mb-4">
+							More Courses
+						</p>
+						<div className="flex flex-col gap-2">
+							{[prev, next].filter(Boolean).map((c) => (
+								<Link
+									key={c.slug}
+									to={`/course/${c.slug}`}
+									className="group flex items-center gap-3 p-3 rounded-xl hover:bg-accentBgHover dark:hover:bg-accentBgHover-dark transition-colors"
+								>
+									<div className={`w-2 h-2 rounded-full bg-gradient-to-br ${c.color} shrink-0`} />
+									<span className="text-sm text-gray-600 dark:text-gray-300 group-hover:text-accentTextContrast dark:group-hover:text-accentTextContrast-dark transition-colors flex-1">
+										{c.name}
+									</span>
+									<svg className="w-3.5 h-3.5 text-gray-400 group-hover:text-accentSolid group-hover:translate-x-0.5 transition-all shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+										<path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+									</svg>
+								</Link>
+							))}
+						</div>
+					</div>
 				</div>
 			</div>
 
-			{/* ── Next / Prev navigation ── */}
+			{/* ── Prev / Next navigation ── */}
 			{(prev || next) && (
 				<div className="border-t border-accentLine dark:border-accentLine-dark bg-accentBgSubtle dark:bg-accentBgSubtle-dark">
 					<div className="max-w-6xl mx-auto px-4 py-8 flex flex-col sm:flex-row justify-between gap-4">
 						{prev ? (
-							<Link to={`/course/${prev.slug}`} className="group flex items-center gap-3 text-sm text-gray-500 dark:text-gray-400 hover:text-accentSolid dark:hover:text-accentText-dark transition-colors">
-								<svg className="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clipRule="evenodd" /></svg>
+							<Link
+								to={`/course/${prev.slug}`}
+								className="group flex items-center gap-3 text-sm text-gray-500 dark:text-gray-400 hover:text-accentSolid dark:hover:text-accentText-dark transition-colors"
+							>
+								<svg className="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+									<path fillRule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clipRule="evenodd" />
+								</svg>
 								<span>Previous: <strong className="text-accentTextContrast dark:text-accentTextContrast-dark">{prev.name}</strong></span>
 							</Link>
 						) : <div />}
 						{next && (
-							<Link to={`/course/${next.slug}`} className="group flex items-center gap-3 text-sm text-gray-500 dark:text-gray-400 hover:text-accentSolid dark:hover:text-accentText-dark transition-colors">
+							<Link
+								to={`/course/${next.slug}`}
+								className="group flex items-center gap-3 text-sm text-gray-500 dark:text-gray-400 hover:text-accentSolid dark:hover:text-accentText-dark transition-colors sm:ml-auto"
+							>
 								<span>Next: <strong className="text-accentTextContrast dark:text-accentTextContrast-dark">{next.name}</strong></span>
-								<svg className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" /></svg>
+								<svg className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+									<path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+								</svg>
 							</Link>
 						)}
 					</div>
@@ -326,11 +472,13 @@ export default function CoursePage() {
 	);
 }
 
-/* ─── Small helper ─────────────────────────────────────── */
+/* ─── Section heading helper ───────────────────────────── */
 function SectionHeading({ children }) {
 	return (
 		<div className="flex items-center gap-3">
-			<h2 className="font-heading text-2xl font-bold text-accentTextContrast dark:text-accentTextContrast-dark">{children}</h2>
+			<h2 className="font-heading text-2xl font-bold text-accentTextContrast dark:text-accentTextContrast-dark whitespace-nowrap">
+				{children}
+			</h2>
 			<div className="flex-1 h-px bg-accentLine dark:bg-accentLine-dark" />
 		</div>
 	);
